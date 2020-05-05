@@ -1,0 +1,88 @@
+/*=== Media Query ===*/
+/* Reset CSS */
+@import url("https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Gothic+A1:100,200,300,400,500,600,700,800,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  color: rgb(52, 52, 51);
+}
+
+/* ::-webkit-scrollbar {
+  display: none;
+} */
+
+body {
+  font-family: 'Karla', sans-serif;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.landing-wrapper {
+
+}
+
+/*** Header Container ***/
+.header-container, .main-menu {
+  display: flex; 
+  align-items: flex-start;
+}
+
+.header-container {
+  padding-top: 20px;
+  width: auto;
+  margin-left: 4%;
+}
+
+.brand {
+  /* min-width: 170px; */
+}
+
+#logo {
+  width: 146px;
+  height: 57px;
+  /* width: auto;
+  height: auto; */
+}
+
+/*** Main Navigation ***/
+.main-navigation {
+  width: 100%;
+  padding-top: 15px;
+}
+
+.main-menu {
+  padding-left: 20px;
+}
+
+.menu-item{
+  display: flex;
+  padding: 7px 2%;
+  /* text-decoration: none; */
+}
+
+.menu-item:hover {
+  color: rgb(80, 123, 251);
+}
+
+ul {
+  list-style: none;
+}
+
+a, input, li {
+  text-decoration: none;
+  color: inherit;
+  white-space: nowrap;
+}
+
+.hl:hover {
+  background-color: rgb(231, 254, 229);
+}
+
+footer {
+  opacity: 10%;
+  margin-top: 20%;
+}
