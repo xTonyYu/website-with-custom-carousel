@@ -2,13 +2,18 @@ const searchContainer = document.querySelector('.search-container');
 const whiteOut = document.querySelectorAll('.white-out');
 const search = document.querySelector('.search');
 const listContainer = document.querySelector('.list-container');
+const crossBarContainer = document.querySelector('.cross-bar-container');
 const leftButton = document.querySelector('.left-btn');
 const rightButton = document.querySelector('.right-btn');
 const teammemberList = document.querySelector('.teammember-list');
 const teammembers = document.querySelectorAll('.teammember');
-const teammembersArr = new Array(...teammembers);
-console.log("teammembersArr", teammembersArr);
-teammembersArr.map(member => member._showing = true);
+const PM1 = document.querySelector('.member0');
+// const teammembersArr = new Array(...teammembers);
+const teammembersArr = [...teammembers];
+console.dir(leftButton);
+console.dir(PM1);
+teammembersArr.map(member => member._visible = true);
+// let lastMemberVisible = false;
 
 const uxList = [
     {title: 'UX Designer', url: '../PlumPear/designer.html'},
@@ -60,45 +65,94 @@ function toggleBkgrnd(e) {
     }
 }
 
-function totalWidth(leadingCard) {
-    if (leadingCard === -1) {
+function totalWidth(DOMElement) {
+    if (DOMElement === -1) {
         return -1;
     }
-    const curStyle = leadingCard.currentStyle || window.getComputedStyle(leadingCard),
-    width = leadingCard.offsetWidth, // or use curStyle.width
-    margin = parseFloat(curStyle.marginLeft) + parseFloat(curStyle.marginRight),
-    padding = parseFloat(curStyle.paddingLeft) + parseFloat(curStyle.paddingRight),
-    border = parseFloat(curStyle.borderLeftWidth) + parseFloat(curStyle.borderRightWidth);
+    // const curStyle = DOMElement.currentStyle || window.getComputedStyle(DOMElement),
+    const rect = DOMElement.getBoundingClientRect(),
+    width = rect.width, padding = 0, border = 0, margin = DOMElement.style.marginRight;
+    // width = DOMElement.offsetWidth, padding = 0, border = 0,
+    // width = parseFloat(curStyle.width), // or use curStyle.width
+    // offsetWidth incl body, padding, border; need to comment next 2 out if using offsetWidth
+    // padding = parseFloat(curStyle.paddingLeft) + parseFloat(curStyle.paddingRight),
+    // border = parseFloat(curStyle.borderLeftWidth) + parseFloat(curStyle.borderRightWidth),
+    // margin = parseFloat(curStyle.marginLeft) + parseFloat(curStyle.marginRight);
+    console.log('marginRight', DOMElement.innerText, margin);
     return (width + padding + border + margin);
 }
+
+function isLastMemberVisible(teammembersArr) {
+    let memberTotalWidthSum = 0, offsetWidthSum = 0;
+    // const startingOffsetLeft = leftButton.offsetLeft;
+    // const startingOffsetLeft = leftButton.offsetWidth + leftButton.offsetLeft;
+    const startingOffsetLeft = totalWidth(leftButton) + leftButton.offsetLeft;
+    // const teammemberListVisibleWidth = teammemberList.offsetWidth + teammemberList.offsetLeft;
+    const teammemberListVisibleWidth = teammemberList.getBoundingClientRect().width;
+    // summing the width of visible member
+    teammembersArr.forEach(member => {
+        // console.log(totalWidth(member));
+        if (member._visible) {
+            memberTotalWidthSum += totalWidth(member);
+            offsetWidthSum += member.offsetWidth;
+            // console.log('current visible memberTotalWidthSum', memberTotalWidthSum);
+        } else {
+            // console.log('current memberTotalWidthSum', memberTotalWidthSum);
+        }
+        console.log('rect.width of', member._visible, member.innerText, memberTotalWidthSum);
+    });
+    console.log('sum of offsetWidths', offsetWidthSum);
+    console.log('%cmember rec.width', 'color: blue', memberTotalWidthSum);
+    // console.warn(' teammemberList.offsetWidth', teammemberList.offsetWidth);
+    // console.warn('+teammemberList.offsetLeft', teammemberList.offsetLeft);
+    // console.warn('-startingOffsetLeft', startingOffsetLeft);
+    console.warn('teammemberList getBoundingClientRect:', teammemberListVisibleWidth);
+
+    // see if sum of currently visible memebers width is smaller than teammemberList width
+    // if so then slide left not execute
+    // else slide left still works
+    if (memberTotalWidthSum < teammemberListVisibleWidth) {
+        console.log('%cisLastMemberVisible? TRUE', 'color: blue');
+        return true;
+    } else {
+        console.log('%cisLastMemberVisible? FALSE', 'color: blue');
+        return false;
+    }
+}
+
 
 function slideLeftOrRight(e, slideDirection) {
     // 
     console.dir(e.target.className);
-    const leadingCardIndex = teammembersArr.findIndex(member => member._showing === true);
-    let leadingCard, newMarginLeft;
+    const lastMemberVisible = isLastMemberVisible(teammembersArr);
+    const leadingMemberIndex = teammembersArr.findIndex(member => member._visible === true);
+    let leadingMember, newMarginLeft;
     const curMarginLeft = parseFloat(teammemberList.style.marginLeft) || 0;
-    
     
     console.log("teammembersArr", teammembersArr);
     console.log("%ccurMarginLeft:", 'color: blue', curMarginLeft);
     console.log("marginLeft BEFORE:",teammemberList.style.marginLeft);
+    console.log("slideDirection", slideDirection);
+    console.log('lastMemberVisible:', lastMemberVisible);
+    console.log("leading teammember", teammembersArr[leadingMemberIndex]);
     
-    if (slideDirection === 'left') {
-        leadingCard = teammembersArr[leadingCardIndex];
-        leadingCard._showing = false;
-        newMarginLeft = curMarginLeft - totalWidth(leadingCard) -1 + 'px';
-    } else {
-        leadingCard = teammembersArr[leadingCardIndex-1] || -1;
-        leadingCard._showing = true;
-        newMarginLeft = curMarginLeft + totalWidth(leadingCard) +1 + 'px';
+    if (slideDirection === 'left' && lastMemberVisible === false) {
+        leadingMember = teammembersArr[leadingMemberIndex];
+        leadingMember._visible = false;
+        leadingMember.style.display = 'none';
+        // newMarginLeft = curMarginLeft - totalWidth(leadingMember) -1 + 'px';
+    } else if (slideDirection === 'right') {
+        leadingMember = teammembersArr[leadingMemberIndex-1] || teammembersArr[0];
+        console.log('leadingMember:', leadingMember);
+        leadingMember._visible = true;
+        leadingMember.style.display = 'block';
+        // newMarginLeft = curMarginLeft + totalWidth(leadingMember) +1 + 'px';
     }
     
-    console.log(leadingCard.innerText, "- total width", totalWidth(leadingCard));
-    console.log("newMarginLeft", newMarginLeft);
-    teammemberList.style.setProperty('margin-left', newMarginLeft);
-    console.log("%cmargLeft AFTER:", 'color: red', teammemberList.style.marginLeft);
-
+    // console.log(leadingMember.innerText, "- total width", totalWidth(leadingMember));
+    // console.log("newMarginLeft", newMarginLeft);
+    // teammemberList.style.setProperty('margin-left', newMarginLeft);
+    console.log("%cmargLeft AFTER:", 'color: red', curMarginLeft);
 }
 
 searchContainer.addEventListener('mouseover', toggleBkgrnd);
