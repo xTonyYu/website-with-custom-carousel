@@ -121,12 +121,14 @@ a, input {
 /*** Cross Scroll Bar Team card ***/
 .cross-bar-container {
   margin-left: 4%;
+  display: flex;
 }
 
 .team {
   display: flex;
   align-items: center;
   height: 100px;
+  overflow: hidden;
   /* overflow-x: scroll; */
 }
 
@@ -136,7 +138,7 @@ a, input {
   height: 45px;
   flex-flow: wrap;
   overflow: hidden;
-  /* align-items: center; */
+  /* margin-left: 0px; */
 }
 ::-webkit-scrollbar-button {
 }
