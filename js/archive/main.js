@@ -68,12 +68,8 @@ function totalWidth(DOMElement) {
     rec = DOMElement.getBoundingClientRect(), // width from rect are more accurate, no rounding
     // rect.width depends on box-sizing style. if it's content-box (as in this case) then rec.width = only content width, not incl padding, border, nor margin.  if it is border-box then rec.width = content + padding + border but not incl margin
     width = rec.width, 
-    // use below if box-sizing = border-box
-    // padding = 0, border = 0,
-    //use next two is box-sizing = content-box
-    padding = parseFloat(curStyle.paddingLeft) + parseFloat(curStyle.paddingRight),
-    border = parseFloat(curStyle.borderLeftWidth) + parseFloat(curStyle.borderRightWidth),
-
+    padding = 0, border = 0, // if box-sizing = content-box
+    
     margin = parseFloat(curStyle.marginLeft) + parseFloat(curStyle.marginRight);
 
     // console.log('marginRight', DOMElement.innerText, margin);
@@ -88,10 +84,9 @@ function isLastMemberVisible(teammembersArr) {
     // summing the width of all members that are _allowToShow which has display="showing" (i.e. NOT "display: none")
     teammembersArr.forEach(member => {
         if (member._allowToShow) {
-            member._totalWidth = totalWidth(member);
-            sumWidthMembersAllowToShow += member._totalWidth;
+            sumWidthMembersAllowToShow += totalWidth(member);
         }
-        console.log('rec.width+margin of', member._allowToShow, member.innerText, member._totalWidth);
+        console.log('rec.width+margin of', member._allowToShow, member.innerText, totalWidth(member));
     });
 
     console.log('%cSUM members\' rec.width+margin', 'color: blue', sumWidthMembersAllowToShow);
@@ -109,10 +104,11 @@ function isLastMemberVisible(teammembersArr) {
 }
 
 function slideLeftOrRight(slideDirection) {
+    console.dir(this);
     const lastMemberVisible = isLastMemberVisible(teammembersArr);
     const leadingMemberIndex = teammembersArr.findIndex(member => member._allowToShow === true);
     let leadingMember,
-        speed = 1000,
+        speed = 400,
         effect = 'linear',
         delay = 0;
     const curMarginLeft = parseFloat(teammemberList.style.marginLeft) || 0;
@@ -125,16 +121,14 @@ function slideLeftOrRight(slideDirection) {
         leadingMember = teammembersArr[leadingMemberIndex];
         console.log('leadingMember:', leadingMember);
         leadingMember._allowToShow = false;
-        // leadingMember.style.display = 'none'; // original
-        leadingMember.style.marginLeft = -leadingMember._totalWidth +'px'; // margin left
+        leadingMember.style.display = 'none';
+        leadingMember.style.transition = 'margin-left ' + speed + 'ms' + ' ' + effect + ' ' + delay + 'ms';
     } else if (slideDirection === 'right') {
         leadingMember = teammembersArr[leadingMemberIndex-1] || teammembersArr[0];
         console.log('leadingMember:', leadingMember);
         leadingMember._allowToShow = true;
-        // leadingMember.style.display = 'block'; // original
-        leadingMember.style.marginLeft = '0px'; // margin left
+        leadingMember.style.display = 'block';
     }
-    leadingMember.style.transition = 'margin-left ' + speed + 'ms' + ' ' + effect + ' ' + delay + 'ms';
 }
 
 /*** Event listeners ***/

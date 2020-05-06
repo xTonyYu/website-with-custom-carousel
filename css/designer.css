@@ -118,8 +118,8 @@ a, input {
   background-color: rgb(231, 254, 229);
 } */
 
-/*** Cross Scroll Bar Team card ***/
-.cross-bar-container {
+/*** Carousel Section Team card ***/
+.carousel-container {
   margin-left: 4%;
   display: flex;
 }
@@ -139,8 +139,6 @@ a, input {
   flex-flow: wrap;
   overflow: hidden;
   /* margin-left: 0px; */
-}
-::-webkit-scrollbar-button {
 }
 
 .teammember {

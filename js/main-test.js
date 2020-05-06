@@ -109,6 +109,7 @@ function isLastMemberVisible(teammembersArr) {
 }
 
 function slideLeftOrRight(slideDirection) {
+    // console.dir(this);
     const lastMemberVisible = isLastMemberVisible(teammembersArr);
     const leadingMemberIndex = teammembersArr.findIndex(member => member._allowToShow === true);
     let leadingMember,
@@ -127,14 +128,17 @@ function slideLeftOrRight(slideDirection) {
         leadingMember._allowToShow = false;
         // leadingMember.style.display = 'none'; // original
         leadingMember.style.marginLeft = -leadingMember._totalWidth +'px'; // margin left
+        // leadingMember.style.visibility = 'collapse'; // for use with table
+        leadingMember.style.transition = 'margin-left ' + speed + 'ms' + ' ' + effect + ' ' + delay + 'ms';
     } else if (slideDirection === 'right') {
         leadingMember = teammembersArr[leadingMemberIndex-1] || teammembersArr[0];
         console.log('leadingMember:', leadingMember);
         leadingMember._allowToShow = true;
         // leadingMember.style.display = 'block'; // original
         leadingMember.style.marginLeft = '0px'; // margin left
+        leadingMember.style.transition = 'margin-left ' + speed + 'ms' + ' ' + effect + ' ' + delay + 'ms';
+        // leadingMember.style.visibility = 'visible'; // for use with table
     }
-    leadingMember.style.transition = 'margin-left ' + speed + 'ms' + ' ' + effect + ' ' + delay + 'ms';
 }
 
 /*** Event listeners ***/
