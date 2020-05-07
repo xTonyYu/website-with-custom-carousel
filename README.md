@@ -1,6 +1,6 @@
 # website-with-custom-carousel
 
-First website I built that started from HTML and CSS tmeplates that I ended up only reworte 95% of them.
+First website I ever built (my third and final career change). I started from HTML and CSS templates which I ended up reworte 95% of them. 
 
 The home page is simple (took me a while for my first build; ensuring the right styling, position, and feature is time consuming; great learning experience).  The search box is not fully functioning.  It acts more like a dropdown for now.
 
