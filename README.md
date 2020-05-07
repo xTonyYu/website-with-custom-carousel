@@ -15,3 +15,5 @@ NEXT STEPS:
 3) refract HTML so all <li> are JS driven instead of hard code
 4) revisit serch box code and css so it can be more of a component
 5) convert all to React.js
+  
+I welcome your feedback.
