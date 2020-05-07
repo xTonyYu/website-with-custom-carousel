@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="24px" viewBox="0 0 13 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>Path</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M18.7067667,11.1220408 L7.7071593,0.288792598 C7.31618944,-0.0962641993 6.68419727,-0.0962641993 6.2932274,0.288792598 C5.90225753,0.673849395 5.90225753,1.29628325 6.2932274,1.68134005 L16.5858454,11.8182915 L6.2932274,21.9552429 C5.90225753,22.3402997 5.90225753,22.9627335 6.2932274,23.3477903 C6.48822016,23.539834 6.74419504,23.6363636 7.00021679,23.6363636 C7.25619166,23.6363636 7.51221341,23.539834 7.70720618,23.3477903 L18.7068136,12.5145421 C19.0977366,12.1295315 19.0977366,11.5070976 18.7067667,11.1220408 Z" id="path-1"></path>
+    </defs>
+    <g id="Icons-by-mad-lab.studio&amp;PearPlus" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Arrow-/-Right2" transform="translate(-6.000000, 0.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Path" fill="#000000" fill-rule="nonzero" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

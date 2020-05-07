@@ -111,9 +111,9 @@ function isLastMemberVisible(teammembersArr) {
 function slideLeftOrRight(slideDirection) {
     const lastMemberVisible = isLastMemberVisible(teammembersArr);
     const leadingMemberIndex = teammembersArr.findIndex(member => member._allowToShow === true);
-    let leadingMember,
-        speed = 1000,
-        effect = 'linear',
+    let leadingMember = teammembersArr[leadingMemberIndex],
+        speed = 550,
+        effect = 'cubic-bezier(0.54, 0.07, 0, 0.76)',
         delay = 0;
     const curMarginLeft = parseFloat(teammemberList.style.marginLeft) || 0;
     
@@ -122,7 +122,7 @@ function slideLeftOrRight(slideDirection) {
     console.log('lastMemberVisible:', lastMemberVisible);
     
     if (slideDirection === 'left' && lastMemberVisible === false) {
-        leadingMember = teammembersArr[leadingMemberIndex];
+        // leadingMember = teammembersArr[leadingMemberIndex];
         console.log('leadingMember:', leadingMember);
         leadingMember._allowToShow = false;
         // leadingMember.style.display = 'none'; // original
@@ -134,7 +134,7 @@ function slideLeftOrRight(slideDirection) {
         // leadingMember.style.display = 'block'; // original
         leadingMember.style.marginLeft = '0px'; // margin left
     }
-    leadingMember.style.transition = 'margin-left ' + speed + 'ms' + ' ' + effect + ' ' + delay + 'ms';
+    leadingMember.style.transition = 'all ' + speed + 'ms' + ' ' + effect + ' ' + delay + 'ms';
 }
 
 /*** Event listeners ***/

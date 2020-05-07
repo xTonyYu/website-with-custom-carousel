@@ -132,11 +132,58 @@ a, input {
   /* overflow-x: scroll; */
 }
 
+.carousel-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+  z-index: 10;
+  margin-right: 10px;
+  border: hidden;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+  /* transition: background 250ms ease-in-out, 
+                transform 150ms ease; */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  /* color: blue; */
+  /* width: 37px;
+  height: 37px; */
+  border-radius: 100%;
+  /* border: solid blue 1px; */
+  
+}
+
+.carousel-btn:hover, .carousel-btn:focus, .arrow:hover, .arrow:focus{
+  outline: none;
+  background-color: hsl(189, 87%, 93%);
+}
+
+.carousel-btn:active, .arrow:active{
+  /* outline: none; */
+  background-color: hsl(190, 87%, 85%);
+}
+
+.right-btn {
+  margin-left: 10px;
+}
+
+.arrow {
+  /* color: blue; */
+  /* border: solid 1px red; */
+  width: 31px;
+  height: 31px;
+  padding: 3px;
+  border-radius: 100%;
+}
+
 .teammember-list {
   display: flex;
   align-items: center;
   height: 45px;
-  flex-flow: wrap;
+  flex-flow: nowrap;
+  /* flex-flow: wrap; */
   overflow: hidden;
   /* margin-left: 0px; */
 }
@@ -148,7 +195,7 @@ a, input {
 }
 
 .list-inline-item {
-  border: rgb(5, 150, 136) solid 1px;
+  border: rgb(0, 150, 136) solid 1px;
   border-radius: 30% 1px;/* not per req'n */
   border-radius: 30px;
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  not per req'n */
@@ -159,5 +206,5 @@ a, input {
 
 .list-inline-item:hover {
   color: white;
-  background-color: rgb(5, 150, 136);
+  background-color: rgb(0, 150, 136);
 }
