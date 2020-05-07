@@ -1,5 +1,3 @@
-/*=== Media Query ===*/
-/* Reset CSS */
 
 /* Setting specific for index.html */
 * {
@@ -101,9 +99,4 @@
 .list-container, .dropdownList{
   border-radius: 4px;
 }
-
-.dropdown-a {
-  /* width: auto; */
-}
-
 

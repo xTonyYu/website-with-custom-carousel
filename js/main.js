@@ -3,12 +3,15 @@ const whiteOut = document.querySelectorAll('.white-out');
 const search = document.querySelector('.search');
 const listContainer = document.querySelector('.list-container');
 const crossBarContainer = document.querySelector('.cross-bar-container');
+
+//////// --- designer page / detail page ---> \\\\\\\\
 const leftButton = document.querySelector('.left-btn');
 const rightButton = document.querySelector('.right-btn');
 const teammemberList = document.querySelector('.teammember-list');
 const teammembers = document.querySelectorAll('.teammember');
 // const teammembersArr = new Array(...teammembers);
 const teammembersArr = [...teammembers];
+//////// <--- designer page / detail page --- \\\\\\\\
 
 const uxList = [
     {title: 'UX Designer', url: '../PlumPear/designer.html'},
@@ -60,6 +63,7 @@ function toggleBkgrndHL(e) {
     }
 }
 
+//////// --- designer page / detail page ---> \\\\\\\\
 /**** Carousel section in the Detail page ****/
 teammembersArr.map(member => member._allowToShow = true);
 
@@ -136,14 +140,18 @@ function slideLeftOrRight(slideDirection) {
     }
     leadingMember.style.transition = 'all ' + speed + 'ms' + ' ' + effect + ' ' + delay + 'ms';
 }
+//////// <--- designer page / detail page --- \\\\\\\\
 
 /*** Event listeners ***/
 searchContainer.addEventListener('mouseover', toggleBkgrndHL);
 searchContainer.addEventListener('mouseleave', toggleBkgrndHL);
 search.addEventListener('keyup', filteredList);
+
+//////// --- designer page / detail page ---> \\\\\\\\
 leftButton.addEventListener('click', e => slideLeftOrRight('right'));
 rightButton.addEventListener('click', e => slideLeftOrRight('left'));
 teammembers.forEach(member => member.addEventListener('mouseover', inspect));
+//////// <--- designer page / detail page --- \\\\\\\\
 
 /*** Research AREA ***/
 // teammembers[1].setAttribute('hidden','');

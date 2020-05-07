@@ -1,15 +1,5 @@
-/*=== Media Query ===*/
-/* Reset CSS */
 
-/* Setting specific for index.html */
-body {
-  /* font-family: 'Karla', sans-serif;
-  font-size: 16px; */
-}
-
-.landing-wrapper {
-
-}
+/* Setting specific for designer.html */
 
 a, input {
   text-decoration: none;
