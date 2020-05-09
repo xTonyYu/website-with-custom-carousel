@@ -50,6 +50,11 @@ a, input {
   margin: 10px;
   /* filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%); */
 }
+
+#svg-search {
+  fill: var(--pp-grey);
+}
+
 .search-box {
   margin-left: 2%;
   width: 75%;
@@ -161,6 +166,10 @@ a, input {
   border-radius: 100%;
 }
 
+#svg-arrow {
+  fill: var(--pp-blue-hl);
+}
+
 .teammember-list {
   display: flex;
   align-items: center;
@@ -178,7 +187,7 @@ a, input {
 }
 
 .list-inline-item {
-  border: rgb(0, 150, 136) solid 1px;
+  border: solid 1px var(--pp-green);
   border-radius: 30% 1px;/* not per req'n */
   border-radius: 30px;
   /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  not per req'n */
@@ -189,5 +198,5 @@ a, input {
 
 .list-inline-item:hover {
   color: white;
-  background-color: rgb(0, 150, 136);
+  background-color: var(--pp-green);
 }

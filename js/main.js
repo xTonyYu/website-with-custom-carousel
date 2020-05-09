@@ -1,6 +1,7 @@
 const searchContainer = document.querySelector('.search-container');
-const whiteOut = document.querySelectorAll('.white-out');
+const focusSearch = document.querySelectorAll('.focus-search');
 const search = document.querySelector('.search');
+const svgSearch = document.querySelector('#svg-search');
 const listContainer = document.querySelector('.list-container');
 const crossBarContainer = document.querySelector('.cross-bar-container');
 
@@ -39,18 +40,23 @@ function filteredList(e) {
         htmlDropdown = '';
     }
     listContainer.innerHTML = htmlDropdown;
+    if (document.querySelector('.dropdownList')) {
+        document.querySelector('.dropdownList').addEventListener('mouseleave', () => listContainer.innerHTML = '');
+    }
 }
 
 function toggleBkgrndHL(e) {
     const searchText = this.querySelector('.search').value;
     if (e.type === 'mouseover' || !searchText == '') {
-        whiteOut.forEach(ele => {
+        focusSearch.forEach(ele => {
             ele.classList.add('whiteBkgrnd');
         })
+        svgSearch.style.fill = '#000000';
     } else {
-        whiteOut.forEach(ele => {
+        focusSearch.forEach(ele => {
             ele.classList.remove('whiteBkgrnd');
         })
+        svgSearch.style.fill = 'var(--pp-grey)';
     }
 }
 

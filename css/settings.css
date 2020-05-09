@@ -1,6 +1,12 @@
 
 @import url("https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Gothic+A1:100,200,300,400,500,600,700,800,900&display=swap");
+:root {
+  --pp-blue-hl: rgb(30, 136, 229);
+  --pp-green: rgb(0, 150, 136);
+  --pp-grey: hsl(0, 0%, 80%)
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -50,7 +56,7 @@ body {
 }
 
 .menu-item:hover {
-  color: rgb(80, 123, 251);
+  color: var(--pp-blue-hl);
 }
 
 ul {
