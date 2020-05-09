@@ -1,7 +1,12 @@
 
 /* Setting specific for index.html */
+:root {
+  --yllow-bkgd: rgb(253, 248, 155);
+  --pp-grey: hsl(0, 0%, 80%)
+}
+
 * {
-  background-color: rgb(253, 248, 155);
+  background-color: var(--yllow-bkgd);
 }
 
 ::-webkit-scrollbar {
@@ -30,23 +35,24 @@
   width: 500px;
   height: 43px;
   border-radius: 30px;
-  border:rgb(202, 199, 154) solid 2px;
+  border: var(--pp-grey) solid 2px;
   margin: 20%;
   margin-top: 200px;
   margin-bottom: 0;
 }
 
 .search-container, .mag-glass, .search-box, .search {
-  background-color: rgb(252, 249, 185);
+  background-color: var(--yllow-bkgd);
 }
 
 .search-container:hover {
-  border-color: rgb(52, 52, 51);
+  border-color: hsl(0, 0%, 20%);
 }
 
 .mag-glass {
   margin: 10px;
 }
+
 .search-box {
   margin-left: 2%;
   width: 85%;
@@ -60,6 +66,10 @@
 
 .search:focus {
   outline: none;
+}
+
+#svg-search {
+  fill: var(--pp-grey);
 }
 
 .whiteBkgrnd {
@@ -82,7 +92,7 @@
 
 .dropdownList{
   width: 85%;
-  border: solid 1px rgb(225, 225, 225);
+  border: solid 1px var(--pp-grey);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -93,7 +103,7 @@
   height: 35px;
   padding-top: 8px;
   border-radius: 2px;
-  border: solid 1px rgb(225, 225, 225);
+  border: solid 1px var(--pp-grey);
 }
 
 .list-container, .dropdownList{
