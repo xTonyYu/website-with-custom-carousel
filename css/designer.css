@@ -110,6 +110,7 @@ a, input {
   display: flex;
   align-items: center;
   height: 100px;
+  width: 100%; /* prob need this for the carousel to grow as window grows
   overflow: hidden;
   /* overflow-x: scroll; */
 }

@@ -1,4 +1,5 @@
 /**** Carousel section in the Detail page ****/
+let prevWindowWidth = window.innerWidth
 const leftButton = document.querySelector('.left-btn');
 const rightButton = document.querySelector('.right-btn');
 const teammemberList = document.querySelector('.teammember-list');
@@ -35,7 +36,7 @@ function isLastMemberVisible(teammembersArr) {
             member._totalWidth = totalWidth(member);
             sumWidthMembersAllowToShow += member._totalWidth;
         }
-        console.log('rec.width+margin of', member._allowToShow, member.innerText, member._totalWidth);
+        // console.log('rec.width+margin of', member._allowToShow, member.innerText, member._totalWidth);
     });
 
     console.log('%cSUM members\' rec.width+margin', 'color: blue', sumWidthMembersAllowToShow);
@@ -52,9 +53,16 @@ function isLastMemberVisible(teammembersArr) {
     }
 }
 
-function slideLeftOrRight(slideDirection) {
-    const lastMemberVisible = isLastMemberVisible(teammembersArr);
-    const leadingMemberIndex = teammembersArr.findIndex(member => member._allowToShow === true);
+function slideLeftOrRight(slideDirection, lastMemberVisibility) {
+    let lastMemberVisible;
+    if (lastMemberVisibility === undefined) {
+        lastMemberVisible = isLastMemberVisible(teammembersArr);
+    } else {
+        lastMemberVisible = lastMemberVisibility;
+    }
+    let leadingMemberIndex = teammembersArr.findIndex(member => member._allowToShow === true);
+    // leadingMemberIndex = leadingMemberIndex < 0 ? teammembersArr.length : leadingMemberIndex; // set to last obj if it is -1
+    console.log('leadingMemberIndex:', leadingMemberIndex);
     let leadingMember = teammembersArr[leadingMemberIndex],
         speed = 550,
         effect = 'cubic-bezier(0.54, 0.07, 0, 0.76)',
@@ -65,7 +73,8 @@ function slideLeftOrRight(slideDirection) {
     console.log("slideDirection", slideDirection);
     console.log('lastMemberVisible:', lastMemberVisible);
     
-    if (slideDirection === 'left' && lastMemberVisible === false) {
+    if (slideDirection === 'left' && lastMemberVisible === false 
+        && leadingMemberIndex < teammembersArr.length - 1) {
         // leadingMember = teammembersArr[leadingMemberIndex];
         console.log('leadingMember:', leadingMember);
         leadingMember._allowToShow = false;
@@ -81,20 +90,57 @@ function slideLeftOrRight(slideDirection) {
     leadingMember.style.transition = 'all ' + speed + 'ms' + ' ' + effect + ' ' + delay + 'ms';
 }
 
+function resizeCarousel(e) {
+    const lastMemberVisible = isLastMemberVisible(teammembersArr);
+    inspect();
+    if (window.innerWidth > prevWindowWidth && lastMemberVisible === true) {
+        // expand carousel and show extra member is space available
+        console.log("%cDOING something", 'color: red');
+        slideLeftOrRight('right', lastMemberVisible);
+    }
+    prevWindowWidth = window.innerWidth;
+    inspect();
+}
+
+function debounce(func, wait = 200, immediate = true) {
+    var timeout;
+    return function() {
+        var context = this,
+            args = arguments;
+        var later = function() {
+            timeout = null;
+            if (!immediate) {
+                func.apply(context, args);
+                // console.count("later");
+            }
+        };
+        // console.log("debounce", wait, immediate);
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        // console.log("timeout:", timeout);
+        if (callNow) {
+            func.apply(context, args);
+            // console.count("CALL NOW");
+        }
+    };
+}
+
 /*** Event listeners ***/
 leftButton.addEventListener('click', e => slideLeftOrRight('right'));
 rightButton.addEventListener('click', e => slideLeftOrRight('left'));
-
+window.addEventListener('resize', debounce(resizeCarousel));
 /*** Research AREA ***/
-teammembers.forEach(member => member.addEventListener('mouseover', inspect));
+// teammembers.forEach(member => member.addEventListener('mouseover', inspect));
 
-console.dir(teammemberList);
+// console.dir(body);
 
 function inspect(e) {
     // console.log(e);
     // console.dir(e);
-    console.log(this.innerText);
-    console.dir(this);
+    console.log('prevWindowWidth', prevWindowWidth);
+    console.log('window.innerWidth', window.innerWidth)
+    // console.dir(this);
     // console.log(teammembers[5].innerText);
     // console.dir(teammembers[5]);
     // console.log(teammembers[2].innerText);
