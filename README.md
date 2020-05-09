@@ -15,7 +15,7 @@ NEXT STEPS:
 + separate carousel section from main.js and create a carousel.js. (completed)
 + complete career path map (in progress)
 + figure out how svg works and change its color other than black (in progress)
-+ refract HTML so all <li> are JS driven instead of hard code
++ refract HTML so all li tags are JS driven instead of hard code
 + revisit serch box code and css so it can be more of a component
 + convert all to React.js
   
