@@ -55,7 +55,7 @@ body {
   /* text-decoration: none; */
 }
 
-.menu-item:hover {
+.item-hl:hover {
   color: var(--pp-blue-hl);
 }
 
@@ -69,7 +69,7 @@ a, input, li {
   white-space: nowrap;
 }
 
-.hl:hover {
+.dropdown-hl:hover {
   background-color: rgb(231, 254, 229);
 }
 

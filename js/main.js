@@ -28,7 +28,7 @@ function filteredList(e) {
         const tempHtml = result.map(item => {
             return `
                 <a href="${item.url}" class="dropdown-a">
-                    <li class="dropdown-item hl whiteBkgrnd">
+                    <li class="dropdown-item dropdown-hl whiteBkgrnd">
                         ${item.title}
                     </li>
                 </a>
