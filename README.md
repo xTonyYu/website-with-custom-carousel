@@ -12,10 +12,10 @@ or from index.html...
 3) my custom carousel is right below the header
 
 NEXT STEPS:
-+ separate carousel section from main.js and create a carousel.js. (completed)
++ separate carousel section from main.js and create a carousel.js. (done)
 + complete career path map (in progress)
-+ figure out how svg works and change its color other than black (in progress)
-+ refract HTML so all li tags are JS driven instead of hard code
++ figure out how svg works and change its color other than black (done)
++ refract HTML so all "li" tags are JS driven instead of hard code
 + revisit serch box code and css so it can be more of a component
 + convert all to React.js
   

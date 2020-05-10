@@ -26,7 +26,6 @@
             <!-- Search area -->
             <div id="search-area">
                 <div class="search-container focus-search">
-                    <!-- <img src="image/Search.svg" class="mag-glass focus-search"> -->
                     <svg class="mag-glass focus-search" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Search</title>
                         <desc>Created with Sketch 59.1 (86144) - https://sketch.com</desc>
@@ -38,7 +37,7 @@
                                 <use xlink:href="#path-search"></use>
                             </mask>
                             <use id="Combined-Shape" fill="#000000" fill-rule="nonzero" xlink:href="#path-search"></use>
-                            <rect id="svg-search" fill="" mask="url(#mask-2)" x="0" y="0" width="24" height="24"></rect>
+                            <rect id="svg-search" fill="none" mask="url(#mask-2)" x="0" y="0" width="24" height="24"></rect>
                         </g>
                     </svg>
                     <form class="search-box">
@@ -55,10 +54,10 @@
             <!-- Main navigation -->
             <div class="main-navigation">
                 <ul class="main-menu">
-                    <li class="menu-item "><a href="#dreamwise">Dreamwise</a></li>
-                    <li class="menu-item"><a href="#ask">Ask Designers</a></li>
-                    <li class="menu-item"><a href="#need">Need Designers</a></li>
-                    <li class="menu-item"><a href="#about">About</a></li>   
+                    <li class="menu-item item-hl"><a href="#dreamwise">Dreamwise</a></li>
+                    <li class="menu-item item-hl"><a href="#ask">Ask Designers</a></li>
+                    <li class="menu-item item-hl"><a href="#need">Need Designers</a></li>
+                    <li class="menu-item item-hl"><a href="#about">About</a></li>   
                 </ul>
             </div>
         </div>
@@ -68,7 +67,6 @@
         <div class="carousel-container">
             <div class="team">
                 <button class="carousel-btn left-btn" >
-                    <!-- <img src="image/Arrorw-left.svg" class="arrow"> -->
                     <svg class="arrow left" width="13px" height="24px" viewBox="0 0 13 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Left</title>
                         <desc>Created with Sketch 59.1 (86144) - https://sketch.com</desc>
@@ -85,7 +83,7 @@
                         </g>
                     </svg>
                 </button>
-                <ul class="teammember-list">
+                <ul class="teammember-list"> <!-- need to make list below dynamic instad of hardcoded -->
                     <li class="teammember" >
                         <a href="#Placeholder" class="list-inline-item" data-index=0>
                             Product Manager1
@@ -123,7 +121,6 @@
                     </li>
                 </ul>
                 <button class="carousel-btn right-btn" >
-                    <!-- <img src="image/Arrorw-right.svg" class="arrow"> -->
                     <svg class="arrow right" width="13px" height="24px" viewBox="0 0 13 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Right</title>
                         <desc>Created with Sketch 59.1 (86144) - https://sketch.com</desc>
@@ -141,15 +138,103 @@
                     </svg>
                 </button>
             </div>
-            <div>
-                <div>
-                </div>
-            </div>
         </div>
     </div>
     <!-- career path map -->
     <main class="career-path">
-        career path map
+        <!-- need to convert to dynamic list eventually instead of hardcoded -->
+        Career Path for a UX Designer
+        <div class="career-path-outer-container">
+            <div class="career-path-container">
+                <div class="row-zero level-container">
+                    <div class="line-dot left">
+                        <!-- <div class="line left">line1</div> -->
+                        <!-- <div class="dot left"><a href="#Placeholder" class="level-title item-hl">dot1</a></div> -->
+                    </div>
+                    <div class="line-dot right">
+                        <div class="line right" style="border-color: white"></div>
+                        <div class="dot right"><a href="#Placeholder" class="level-title item-hl">Junior Designer</a></div>
+                    </div>
+                </div>
+                <div class="row-one level-container">
+                    <div class="line-dot left">
+                        <!-- <div class="line left">line3</div> -->
+                        <!-- <div class="dot left"><a href="#Placeholder" class="level-title item-hl">dot3</a></div> -->
+                    </div>
+                    <div class="line-dot right">
+                        <div class="line right"></div>
+                        <div class="dot right"><a href="#Placeholder" class="level-title item-hl">Senior Designer</a></div>
+                    </div>
+                </div>
+                <div class="row-two level-container">
+                    <div class="curve-dot right">
+                        <!-- <svg viewBox="0 0 100 100" style="border: 1px dotted green"> -->
+                        <svg class="svg-curve-line" width="80px" height="80px" viewBox="0 17 80 40">
+                            <path class="curve-line-path" stroke="black" strok-width="1" fill="none" 
+                                d="m81 0 v10 
+                                    q5 30 -30 30 
+                                    h-20
+                                    q-35 0 -30 30
+                                    v10 
+                                " />
+                        <!-- <svg class="svg-curve-line" width="80px" height="80px" viewBox="0 -2 80 40"> -->
+                            <!-- <path class="curve-line-path" stroke="blue" strok-width="1" fill="none" 
+                                d="m81 0 
+                                    q 0 15 -40 20 
+                                    t -40 20 
+                                " /> -->
+                        </svg>
+                        <div class="dot left"><a href="#Placeholder" class="level-title item-hl">Principal Designer</a></div>
+                    </div>
+                    <div class="line-dot right">
+                        <div class="line right"></div>
+                        <div class="dot right"><a href="#Placeholder" class="level-title item-hl">Design Manager</a></div>
+                    </div>
+                </div>
+                <div class="row-three level-container">
+                    <div class="line-dot left">
+                        <!-- <div class="line left"></div> -->
+                        <!-- <div class="dot left"><a href="#Placeholder" class="level-title item-hl">dot7</a></div> -->
+                    </div>
+                    <div class="line-dot right">
+                        <div class="line right"></div>
+                        <div class="dot right"><a href="#Placeholder" class="level-title item-hl">Senior Design Manager</a></div>
+                    </div>
+                </div>
+                <div class="row-4 level-container">
+                    <div class="line-dot left">
+                        <!-- <div class="line left"></div> -->
+                        <!-- <div class="dot left"><a href="#Placeholder" class="level-title item-hl">dot7</a></div> -->
+                    </div>
+                    <div class="line-dot right">
+                        <div class="line right"></div>
+                        <div class="dot right"><a href="#Placeholder" class="level-title item-hl">Design Director</a></div>
+                    </div>
+                </div>
+                <div class="row-5 level-container">
+                    <div class="line-dot left">
+                        <!-- <div class="line left"></div> -->
+                        <!-- <div class="dot left"><a href="#Placeholder" class="level-title item-hl">dot7</a></div> -->
+                    </div>
+                    <div class="line-dot right">
+                        <div class="line right"></div>
+                        <div class="dot right"><a href="#Placeholder" class="level-title item-hl">Senior Design Director</a></div>
+                    </div>
+                </div>
+                <div class="row-5 level-container">
+                    <div class="line-dot left">
+                        <!-- <div class="line left"></div> -->
+                        <!-- <div class="dot left"><a href="#Placeholder" class="level-title item-hl">dot7</a></div> -->
+                    </div>
+                    <div class="line-dot right">
+                        <div class="line right"></div>
+                        <div class="dot right"><a href="#Placeholder" class="level-title item-hl">VP of Design</a></div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="right-padding">hello
+            </div> -->
+        </div>
     </main>
     <!-- <footer>Plum & Pear</footer> -->
 </div>

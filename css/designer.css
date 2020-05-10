@@ -1,13 +1,13 @@
 
 /* Setting specific for designer.html */
 
-a, input {
+/* a, input {
   text-decoration: none;
   color: inherit;
   white-space: nowrap;
-}
+} */
 
-/*** Search Area ***/
+/*** ////////// Search Area \\\\\\\\\\\\ ***/
 #search-area {
   /* background-image: url('../image/Background.jpg');
   background-size: 1300px auto;
@@ -80,6 +80,7 @@ a, input {
   /* clear: left; */
   display: inline-block;
   position: absolute; /* NEW */
+  z-index: 50;
   margin-left: 42px;/* Diff */
   Margin-top: 2px;
   width: 250px;
@@ -105,7 +106,7 @@ a, input {
   border-radius: 4px;
 }
 
-/*** Carousel Section Team card ***/
+/*** ////////// Carousel Section Team card \\\\\\\\\\ ***/
 .carousel-container {
   margin-left: 4%;
   display: flex;
@@ -199,4 +200,74 @@ a, input {
 .list-inline-item:hover {
   color: white;
   background-color: var(--pp-green);
+}
+
+/*** /////////// Career Path Map \\\\\\\\\\\ ***/
+.career-path {
+  display: flex;
+  justify-content: flex-start;
+  /* color: #333333; */
+  margin-left: 4%;
+  font-size: 21px;
+}
+
+/* .right-padding {
+  width: 200px;
+} */
+.career-path-outer-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 55%;
+}
+
+.career-path-container {
+  /* margin: 25px; */
+  font-size: 16px;
+  padding-right: 50%;
+}
+
+.curve-line-path {
+  stroke-width: 2px;
+}
+
+.level-container {
+  /* border: 1px solid red; */
+  width: 200px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.line-dot, .curve-dot, .svg-curve-line, .line {
+  width: 45%;
+  height: 70px;
+}
+
+.svg-curve-line {
+  width: 100%;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  background-color: black;
+  border-radius: 50%;
+  margin-left: -6px;
+  position: absolute;
+}
+
+.level-title {
+  margin-left: 40px;
+  color: var(--pp-blue-hl);
+}
+
+.curve-dot .dot {
+  margin-top: -5px;
+}
+
+.curve-dot .dot .level-title{
+  margin-left: -160px;
+}
+
+.line.right, .line.left {
+  border-left: 2px solid black;
 }
