@@ -110,3 +110,8 @@
   border-radius: 4px;
 }
 
+#dropdown-item-hl {
+  background: #ffc600;
+  color: var(--pp-blue-hl);
+}
+

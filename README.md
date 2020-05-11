@@ -13,10 +13,11 @@ or from index.html...
 
 NEXT STEPS:
 + separate carousel section from main.js and create a carousel.js. (done)
-+ complete career path map (in progress)
++ complete initial career path map (done)
++ refine career path map so left side dot show up
 + figure out how svg works and change its color other than black (done)
-+ refract HTML so all "li" tags are JS driven instead of hard code
-+ revisit serch box code and css so it can be more of a component
++ refract HTML so all "li" tags are JS driven instead of hard code (done)
++ revisit search box code and css so it can be more of a component
 + convert all to React.js
   
 I welcome your feedback.

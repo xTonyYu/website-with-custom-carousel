@@ -4,23 +4,27 @@ const search = document.querySelector('.search');
 const svgSearch = document.querySelector('#svg-search');
 const listContainer = document.querySelector('.list-container');
 
-// uxList in data.js;
+// searchList in data.js;
 
 function filteredList(e) {
     const searchText = this.value;
     console.log(searchText);
     // show the filtered drop down list
-    const result = uxList.filter(item => {
-        return item.title.toLowerCase().includes(searchText.toLowerCase())
-    })
+    let re = new RegExp(searchText, 'gi')
+    const result = searchList.filter(item => {
+        return item.title.match(re);
+    });
+
     // console.log(result.length);
     let htmlDropdown;
     if (!searchText == '' && result.length > 0) {
         const tempHtml = result.map(item => {
+            // let re = new RegExp(searchText, 'gi')
+            let titleHl = item.title.replace(re, `<span id="dropdown-item-hl">${searchText}</span>`)
             return `
                 <a href="${item.url}" class="dropdown-a">
                     <li class="dropdown-item dropdown-hl whiteBkgrnd">
-                        ${item.title}
+                        ${titleHl}
                     </li>
                 </a>
             `
