@@ -3,10 +3,39 @@ let prevWindowWidth = window.innerWidth
 const leftButton = document.querySelector('.left-btn');
 const rightButton = document.querySelector('.right-btn');
 const teammemberList = document.querySelector('.teammember-list');
+
+// teamData in data.js;
+
+// const teamData = [
+//     {genericTitle: 'Sr. Product Manager', role: 'Product Manager', url: '#Placeholder' },
+//     {genericTitle: 'Product Manager', role: 'Product Manager', url: '#Placeholder' },
+//     {genericTitle: 'UX Designer', role: 'UX/Product Designer', url: '#Placeholder' },
+//     {genericTitle: 'UX Researcher', role: 'UX Researcher', url: '#Placeholder' },
+//     {genericTitle: 'Design Developer', role: 'Front-end Developer', url: '#Placeholder' },
+//     {genericTitle: 'Front-end Developer', role: 'Front-end Developer', url: '#Placeholder' },
+//     {genericTitle: 'Back-end Developer', role: 'Back-end Developer', url: '#Placeholder' },
+// ];
+
+///////////****   Creating carousel content cards  ****\\\\\\\\\\\
+
+const carouselHtml = teamData.map(member => {
+    return `
+    <li class="teammember" >
+        <a href="${member.url}" class="list-inline-item" data-role="${member.role}">
+            ${member.genericTitle}  
+        </a>
+    </li>
+    `
+}).join('');
+teammemberList.innerHTML = carouselHtml;
+// targeting DOM elements after they're created
 const teammembers = document.querySelectorAll('.teammember');
 // const teammembersArr = new Array(...teammembers);
 const teammembersArr = [...teammembers];
 teammembersArr.map(member => member._allowToShow = true);
+
+
+///////////****   Carousel functionality  ****\\\\\\\\\\\
 
 function totalWidth(DOMElement) {
     const curStyle = DOMElement.currentStyle || window.getComputedStyle(DOMElement), // need this to get margin width

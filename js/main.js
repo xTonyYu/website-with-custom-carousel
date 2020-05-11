@@ -4,16 +4,7 @@ const search = document.querySelector('.search');
 const svgSearch = document.querySelector('#svg-search');
 const listContainer = document.querySelector('.list-container');
 
-// import uxList from './data.js';
-const uxList = [
-    {title: 'UX Designer', url: '../PlumPear/designer.html'},
-    {title: 'UX Researcher', url: '#researcher'},
-    {title: 'UX Writer', url: '#writer'},
-    {title: 'UX Mama', url: '#mom'},
-    {title: 'UX Dad', url: '#dad'},
-    {title: 'UX Reader', url: '#reader'},
-    {title: 'UX Worker', url: '#worker'},
-    {title: 'UX Dude', url: '#dude'}];
+// uxList in data.js;
 
 function filteredList(e) {
     const searchText = this.value;

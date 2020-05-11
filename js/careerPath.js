@@ -2,154 +2,11 @@ const pathTitle = document.querySelector('.path-title');
 const outerContainer = document.querySelector('.career-path-outer-container');
 const pathContainer = document.querySelector('.career-path-container');
 
-// const teammembers = document.querySelectorAll('.teammember');
+// careers in data.js;
 
-const careers = [
-    {   role: 'UX/Product TESTING',
-        path: [
-            {   level: 1,
-                route: [
-                    {number:1,
-                    title: 'UX/Product Designer',
-                    shortTitle: 'Designer',
-                    url:'#Placeholder'}
-                    ]
-            },
-            {   level: 2,
-                route: [
-                    {number:1,
-                    title: 'Senior UX/Product Designer',
-                    shortTitle: 'Senior Designer',
-                    url:'#Placeholder'}
-                    ]
-            },
-            {   level: 3,
-                route: [
-                    {number: 2,
-                    title: 'Lead/Principal UX/Product Designer',
-                    shortTitle: 'Lead/Principal Designer',
-                    url:'#Placeholder'},
-                    {number: 1,
-                    title: 'UX/Product Design Manager',
-                    shortTitle: 'Design Manager',
-                    url:'#Placeholder'}
-                    ]
-            },
-            {   level: 4,
-                route: [
-                    {number: 1,
-                    title: 'Director of UX/Product Design',
-                    shortTitle: 'Director of Design',
-                    url:'#Placeholder'},
-                    {number: 2,
-                    title: 'Senior Lead/Principal UX/Product Designer',
-                    shortTitle: 'Senior Principal Designer',
-                    url:'#Placeholder'}
-                    ]
-            },
-            {   level: 5,
-                route: [
-                    {number:1,
-                    title: 'VP of UX/Product Design',
-                    shortTitle: 'VP of Design',
-                    url:'#Placeholder'}
-                    ]
-            },
-        ]
-    },
-    {   role: 'Front-end Developer',
-        path: [
-            {   level: 1,
-                route: [
-                    {number:1,
-                    title: 'Front-end Developer',
-                    shortTitle: 'Developer',
-                    url:'#Placeholder'}
-                    ]
-            },
-            {   level: 2,
-                route: [
-                    {number:1,
-                    title: 'Senior Front-end Developer',
-                    shortTitle: 'Senior Developer',
-                    url:'#Placeholder'}
-                    ]
-            },
-            {   level: 3,
-                route: [
-                    {number: 2,
-                    title: 'Lead/Principal Front-end Developer',
-                    shortTitle: 'Lead/Principal Developer',
-                    url:'#Placeholder'},
-                    {number: 1,
-                    title: 'Front-end Engieering Manager',
-                    shortTitle: 'Engineering Manager',
-                    url:'#Placeholder'}
-                    ]
-            },
-            {   level: 4,
-                route: [
-                    {number:1,
-                    title: 'Director of Front-end Engineering',
-                    shortTitle: 'Director of Engineering',
-                    url:'#Placeholder'}
-                    ]
-            },
-            {   level: 5,
-                route: [
-                    {number:1,
-                    title: 'VP of Front-end Engineering',
-                    shortTitle: 'VP of Engineering',
-                    url:'#Placeholder'}
-                    ]
-            }]
-    },
-    {   role: 'Product Manager',
-        path: [
-            {   level: 1,
-                route: [
-                    {number:1,
-                    title: 'Associate Product Manager',
-                    shortTitle: 'Associate Product Manager',
-                    url:'#Placeholder'}
-                    ]
-            },
-            {   level: 2,
-                route: [
-                    {number:1,
-                    title: 'Product Manager',
-                    shortTitle: 'Product Manager',
-                    url:'#Placeholder'}
-                    ]
-            },
-            {   level: 3,
-                route: [
-                    {number:1,
-                    title: 'Senior Product Manager',
-                    shortTitle: 'Senior Product Manager',
-                    url:'#Placeholder'}
-                    ]
-            },
-            {   level: 4,
-                route: [
-                    {number:1,
-                    title: 'Director of Product',
-                    shortTitle: 'Director of Product',
-                    url:'#Placeholder'}
-                    ]
-            },
-            {   level: 5,
-                route: [
-                    {number:1,
-                    title: 'VP of Product',
-                    shortTitle: 'VP of Product',
-                    url:'#Placeholder'}
-                    ]
-            }]
-    },
-];
+///////////****   Create Career Path Map  ****\\\\\\\\\\\
 
-function path(rolePicked) {
+function pathMap(rolePicked) {
     let focusedRole = (careers.filter(career => career.role === rolePicked));
     if (focusedRole.length === 0) {
         return console.log("role name not found or spell incorrectly");
@@ -164,9 +21,8 @@ function path(rolePicked) {
 
         const mainRole = role.route.filter(route => route.number === 1)[0];
         const altRole = role.route.filter(route => route.number !== 1)[0] || '';
-        console.log("mainRole:", mainRole);
-        console.log("altRole1:", altRole);
-
+        // console.log("mainRole:", mainRole);
+        // console.log("altRole1:", altRole);
 
         if (numberOfRoutes === 1) { // div container for levels with only 1 route
             return `
@@ -180,9 +36,7 @@ function path(rolePicked) {
             </div>
             `
         } else if (numberOfRoutes === 2 && initialSplit === false) { // for level with 2 route; assumes maximum 2 routes per level
-            console.log('initialSplit BEFORE:', initialSplit);
             initialSplit = true;
-            console.log('initialSplit AFTER:', initialSplit);
             return `
             <div class="level-container">
                 <div class="curve-dot left">
@@ -203,8 +57,7 @@ function path(rolePicked) {
                 </div>
             </div>
             `
-        } else if (numberOfRoutes === 2 && initialSplit === true) {
-            console.log('initialSplit:', initialSplit);
+        } else if (numberOfRoutes === 2 && initialSplit === true) { // for level with 2 routes and 2nd route has already been created
             return `
             <div class="level-container">
                 <div class="line-dot left">
@@ -220,13 +73,13 @@ function path(rolePicked) {
         } else {
             return ''
         }
-    }).join(' ')
+    }).join('')
     
-    console.log('html', pathHtml);
+    // console.log('html', pathHtml);
     pathTitle.innerText = `Career Path for a ${rolePicked}`;
     pathContainer.innerHTML = pathHtml;
 }
 
-teammembers.forEach(member => member.addEventListener('click', e => console.dir(e.target)));
+teammembers.forEach(member => member.addEventListener('click', e => pathMap(e.target.dataset.role)));
 
-path('Front-end Developer');
+// pathMap('Front-end Developer');
