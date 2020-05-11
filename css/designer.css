@@ -207,8 +207,14 @@
   display: flex;
   justify-content: flex-start;
   /* color: #333333; */
+}
+
+.path-title {
   margin-left: 4%;
   font-size: 21px;
+  min-width: 10%;
+  z-index: 10;
+  height: 40%;
 }
 
 /* .right-padding {
@@ -217,13 +223,13 @@
 .career-path-outer-container {
   display: flex;
   justify-content: flex-end;
-  width: 55%;
+  width: 30%;
 }
 
 .career-path-container {
   /* margin: 25px; */
   font-size: 16px;
-  padding-right: 50%;
+  padding-right: 0%;
 }
 
 .curve-line-path {

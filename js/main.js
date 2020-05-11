@@ -3,8 +3,8 @@ const focusSearch = document.querySelectorAll('.focus-search');
 const search = document.querySelector('.search');
 const svgSearch = document.querySelector('#svg-search');
 const listContainer = document.querySelector('.list-container');
-const crossBarContainer = document.querySelector('.cross-bar-container');
 
+// import uxList from './data.js';
 const uxList = [
     {title: 'UX Designer', url: '../PlumPear/designer.html'},
     {title: 'UX Researcher', url: '#researcher'},
