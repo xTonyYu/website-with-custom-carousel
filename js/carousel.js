@@ -21,7 +21,7 @@ const teammemberList = document.querySelector('.teammember-list');
 const carouselHtml = teamData.map(member => {
     return `
     <li class="teammember" >
-        <a href="${member.url}" class="list-inline-item" data-role="${member.role}">
+        <a href="#${member.role}" class="list-inline-item" data-role="${member.role}">
             ${member.genericTitle}  
         </a>
     </li>

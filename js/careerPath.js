@@ -82,4 +82,11 @@ function pathMap(rolePicked) {
 
 teammembers.forEach(member => member.addEventListener('click', e => pathMap(e.target.dataset.role)));
 
-// pathMap('Front-end Developer');
+const curUrl = window.location.href;
+console.log(curUrl);
+const index = curUrl.indexOf('#') +1
+let re = new RegExp('%20', 'gi');
+const roleKeyWord = curUrl.slice(index).replace(re, ' ');
+console.log('roleKeyWord', roleKeyWord);
+
+pathMap(roleKeyWord);

@@ -22,7 +22,7 @@ function filteredList(e) {
             // let re = new RegExp(searchText, 'gi')
             let titleHl = item.title.replace(re, `<span id="dropdown-item-hl">${searchText}</span>`)
             return `
-                <a href="${item.url}" class="dropdown-a">
+                <a onclick="toDetailPage('${item.role}','${item.url}')" class="dropdown-a">
                     <li class="dropdown-item dropdown-hl whiteBkgrnd">
                         ${titleHl}
                     </li>
@@ -53,6 +53,11 @@ function toggleBkgrndHL(e) {
         })
         svgSearch.style.fill = 'var(--pp-grey)';
     }
+}
+
+function toDetailPage(role, url) {
+    console.log(role, url);
+    window.location.href = url + '#' + role;
 }
 
 /*** Event listeners ***/
