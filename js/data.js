@@ -1,5 +1,5 @@
 const uxList = [
-    {title: 'UX Designer', url: '../PlumPear/designer.html'},
+    {title: 'UX Designer', url: '../PlumPear/detail.html'},
     {title: 'UX Researcher', url: '#researcher'},
     {title: 'UX Writer', url: '#writer'},
     {title: 'UX Mama', url: '#mom'},
@@ -26,7 +26,7 @@ const careers = [
                     {number:1,
                     title: 'UX/Product Designer',
                     shortTitle: 'Designer',
-                    url:'../PlumPear/designer.html'}
+                    url:'../PlumPear/detail.html'}
                     ]
             },
             {   level: 2,
@@ -34,7 +34,7 @@ const careers = [
                     {number:1,
                     title: 'Senior UX/Product Designer',
                     shortTitle: 'Senior Designer',
-                    url:'../PlumPear/designer.html'}
+                    url:'../PlumPear/detail.html'}
                     ]
             },
             {   level: 3,
@@ -42,11 +42,11 @@ const careers = [
                     {number: 2,
                     title: 'Lead/Principal UX/Product Designer',
                     shortTitle: 'Lead/Principal Designer',
-                    url:'../PlumPear/designer.html'},
+                    url:'../PlumPear/detail.html'},
                     {number: 1,
                     title: 'UX/Product Design Manager',
                     shortTitle: 'Design Manager',
-                    url:'../PlumPear/designer.html'}
+                    url:'../PlumPear/detail.html'}
                     ]
             },
             {   level: 4,
@@ -54,11 +54,11 @@ const careers = [
                     {number: 1,
                     title: 'Director of UX/Product Design',
                     shortTitle: 'Director of Design',
-                    url:'../PlumPear/designer.html'},
+                    url:'../PlumPear/detail.html'},
                     {number: 2,
                     title: 'Senior Lead/Principal UX/Product Designer',
                     shortTitle: 'Senior Principal Designer',
-                    url:'../PlumPear/designer.html'}
+                    url:'../PlumPear/detail.html'}
                     ]
             },
             {   level: 5,
@@ -66,7 +66,7 @@ const careers = [
                     {number:1,
                     title: 'VP of UX/Product Design',
                     shortTitle: 'VP of Design',
-                    url:'../PlumPear/designer.html'}
+                    url:'../PlumPear/detail.html'}
                     ]
             },
         ]
