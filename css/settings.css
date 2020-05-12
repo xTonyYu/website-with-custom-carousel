@@ -126,7 +126,7 @@ footer {
   outline: none;
 }
 
-#svg-search {
+#svg-search, #Combined-Shap{
   fill: var(--pp-grey);
 }
 
@@ -151,6 +151,7 @@ footer {
   width: auto;
   border: solid 1px var(--pp-grey);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-transform: capitalize;
 }
 
 .dropdown-item {

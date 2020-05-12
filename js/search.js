@@ -6,23 +6,38 @@ const listContainer = document.querySelector('.list-container');
 
 // searchList in data.js;
 
-function filteredList(e) {
-    const searchText = this.value;
+function filteringList(searchText, option) {
     console.log(searchText);
     // show the filtered drop down list
-    let re = new RegExp(searchText, 'gi')
+    const re = new RegExp(searchText, option);
     const result = searchList.filter(item => {
-        return item.title.match(re);
+        return item.title.match(re);  //filtering by title
     });
+    // console.log('result:', result);
+    return result;
+}
 
+function DisplayResult(e) {    
+    const searchText = this.value;
+    const result = filteringList(searchText,'gi');
     // console.log(result.length);
+    // displaying the dropdown list
     let htmlDropdown;
     if (!searchText == '' && result.length > 0) {
+        const re = new RegExp(searchText, 'gi');
         const tempHtml = result.map(item => {
-            // let re = new RegExp(searchText, 'gi')
-            let titleHl = item.title.replace(re, `<span id="dropdown-item-hl">${searchText}</span>`)
+            let titleHl = item.title.replace(re, `<span id="dropdown-item-hl">${searchText}</span>`);
+            // check if current page is index.html; <a> tag will trigger href, if it is in detail.html pathMap func will be called instead
+            const urlHasIndexHtml = window.location.href.includes('index.html');
+            let aTagAttribute;
+            if (urlHasIndexHtml) {
+                aTagAttribute = `href="${item.url}#${item.role}"`;
+            } else {
+                aTagAttribute = `onclick="pathMap('${item.role}')" href="${item.url}#${item.role}"`;
+            };
+            // display
             return `
-                <a onclick="toDetailPage('${item.role}','${item.url}')" class="dropdown-a">
+                <a ${aTagAttribute} class="dropdown-a">
                     <li class="dropdown-item dropdown-hl whiteBkgrnd">
                         ${titleHl}
                     </li>
@@ -35,8 +50,20 @@ function filteredList(e) {
         htmlDropdown = '';
     }
     listContainer.innerHTML = htmlDropdown;
+    const dropdownATag = document.querySelectorAll('.dropdown-a');
+    // console.log('dropdownA:', dropdownATag);
+
     if (document.querySelector('.dropdownList')) {
         document.querySelector('.dropdownList').addEventListener('mouseleave', () => listContainer.innerHTML = '');
+        dropdownATag.forEach(item => item.addEventListener('click', () => {
+            // console.log("%cclicking", 'color: red');
+            listContainer.innerHTML = '';
+            // console.log(item.innerText);
+            let displayTitle = filteringList(item.innerText.trim(), 'i');
+            displayTitle = displayTitle[0].title;
+            // console.log('displayTitle:', displayTitle);
+            search.value = displayTitle;
+        }));
     }
 }
 
@@ -63,7 +90,7 @@ function toDetailPage(role, url) {
 /*** Event listeners ***/
 searchContainer.addEventListener('mouseover', toggleBkgrndHL);
 searchContainer.addEventListener('mouseleave', toggleBkgrndHL);
-search.addEventListener('keyup', filteredList);
+search.addEventListener('keyup', DisplayResult);
 
 /*** Research AREA ***/
 

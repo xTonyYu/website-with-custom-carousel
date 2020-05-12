@@ -2,20 +2,21 @@ const pathTitle = document.querySelector('.path-title');
 const outerContainer = document.querySelector('.career-path-outer-container');
 const pathContainer = document.querySelector('.career-path-container');
 
+
 // careers in data.js;
 
 ///////////****   Create Career Path Map  ****\\\\\\\\\\\
 
 function pathMap(rolePicked) {
-    let focusedRole = (careers.filter(career => career.role === rolePicked));
-    if (focusedRole.length === 0) {
+    let selectedRole = (careers.filter(career => career.role === rolePicked));
+    if (selectedRole.length === 0) {
         return console.log("role name not found or spell incorrectly");
     }
-    focusedRole = focusedRole[0].path;
-    console.log(focusedRole);
+    selectedRole = selectedRole[0].path;
+    // console.log('selectedRole:', selectedRole);
     let initialSplit = false;
 
-    const pathHtml = focusedRole.map(role => {
+    const pathHtml = selectedRole.map(role => {
         const numberOfRoutes = role.route.length;
         // console.log("numberOfRoute:", numberOfRoutes);
 
@@ -83,10 +84,11 @@ function pathMap(rolePicked) {
 teammembers.forEach(member => member.addEventListener('click', e => pathMap(e.target.dataset.role)));
 
 const curUrl = window.location.href;
-console.log(curUrl);
+// console.log(curUrl);
 const index = curUrl.indexOf('#') +1
 let re = new RegExp('%20', 'gi');
 const roleKeyWord = curUrl.slice(index).replace(re, ' ');
 console.log('roleKeyWord', roleKeyWord);
 
-pathMap(roleKeyWord);
+pathMap(roleKeyWord); // updating path map based on what was clicked before this page
+console.log("%crunning untriggered pathMap func", 'color: red');

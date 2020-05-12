@@ -12,7 +12,7 @@ const uxList = [
 const teamData = [
     {genericTitle: 'Sr. Product Manager', role: 'Product Manager', url: '../PlumPear/detail.html' },
     {genericTitle: 'Product Manager', role: 'Product Manager', url: '../PlumPear/detail.html' },
-    {genericTitle: 'UX Designer', role: 'UX/Product Designer', url: '../PlumPear/detail.html' },
+    {genericTitle: 'UX Designer', role: 'UX Product Designer', url: '../PlumPear/detail.html' },
     {genericTitle: 'UX Researcher', role: 'UX Researcher', url: '../PlumPear/detail.html' },
     {genericTitle: 'Design Developer', role: 'Front-end Developer', url: '../PlumPear/detail.html' },
     {genericTitle: 'Front-end Developer', role: 'Front-end Developer', url: '../PlumPear/detail.html' },
@@ -20,12 +20,12 @@ const teamData = [
 ];
 
 const careers = [
-    {   role: 'UX/Product Designer',
+    {   role: 'UX Product Designer',
         path: [
             {   level: 1,
                 route: [
                     {number:1,
-                    title: 'UX/Product Designer',
+                    title: 'UX Product Designer',
                     shortTitle: 'Designer',
                     url:'../PlumPear/detail.html'}
                     ]
@@ -33,7 +33,7 @@ const careers = [
             {   level: 2,
                 route: [
                     {number:1,
-                    title: 'Senior UX/Product Designer',
+                    title: 'Senior UX Product Designer',
                     shortTitle: 'Senior Designer',
                     url:'../PlumPear/detail.html'}
                     ]
@@ -41,11 +41,11 @@ const careers = [
             {   level: 3,
                 route: [
                     {number: 2,
-                    title: 'Lead/Principal UX/Product Designer',
+                    title: 'Lead/Principal UX Product Designer',
                     shortTitle: 'Lead/Principal Designer',
                     url:'../PlumPear/detail.html'},
                     {number: 1,
-                    title: 'UX/Product Design Manager',
+                    title: 'UX Product Design Manager',
                     shortTitle: 'Design Manager',
                     url:'../PlumPear/detail.html'}
                     ]
@@ -53,11 +53,11 @@ const careers = [
             {   level: 4,
                 route: [
                     {number: 1,
-                    title: 'Director of UX/Product Design',
+                    title: 'Director of UX Product Design',
                     shortTitle: 'Director of Design',
                     url:'../PlumPear/detail.html'},
                     {number: 2,
-                    title: 'Senior Lead/Principal UX/Product Designer',
+                    title: 'Senior Lead/Principal UX Product Designer',
                     shortTitle: 'Senior Principal Designer',
                     url:'../PlumPear/detail.html'}
                     ]
@@ -65,7 +65,7 @@ const careers = [
             {   level: 5,
                 route: [
                     {number:1,
-                    title: 'VP of UX/Product Design',
+                    title: 'VP of UX Product Design',
                     shortTitle: 'VP of Design',
                     url:'../PlumPear/detail.html'}
                     ]
@@ -117,7 +117,7 @@ const careers = [
         {   level: 5,
             route: [
                 {number:1,
-                title: 'VP of UX/Product Design',
+                title: 'VP of UX Product Design',
                 shortTitle: 'VP of Design',
                 url:'../PlumPear/detail.html'}
                 ]
@@ -318,33 +318,18 @@ const careers = [
     },
 ];
 
-// creating title list...
-console.log('careers', careers);
-// let searchList = [];
+// creating Search list from careers data...
 
-// searchList = careers.map(role => {
-//     console.log("role.path:", role.path); // role.path is an array
-//     role.path.map(ele => {
-//         console.log("role.path[i].route:",ele.route); //ele.route is also an array
-//         ele.route.map(e => {
-//             // console.log("role.path[i].route[j]:",e.title, e.url); //ele.route is also an array
-//             e.title !== ''
-//             // return {
-//             //     title: e.title,
-//             //     url: e.url
-//             // }
-//         })
-//     })
-// })
-// console.log('searchList:', searchList);
-
-function flatten(a) {  // recursive to flatten deep nested arrays
+function flatten(a) {  // recursive function to flatten deep nested arrays
     return Array.isArray(a) ? [].concat.apply([], a.map(flatten)) : a;
 }
 
 const searchList1 = careers.map(role => {
+    // console.log('careers', careers);
     return role.path.map(ele => {
+        // console.log('role.path:', role.path);
         return ele.route.map(e => {
+            // console.log('ele.route:', ele.route);
             return {
                 title: e.title,
                 role: role.role,
@@ -353,17 +338,17 @@ const searchList1 = careers.map(role => {
         })
     })
 });
-// console.log('searchList1:', searchList1);
+// console.log('searchList1:', searchList1); //multiple layers of arrays
 
 const searchList2 = flatten(searchList1); //flatten the array
 // console.log('searchList2:', searchList2);
 
-function sortByTitle(a, b) {
+function sortByTitle(a, b) {  // sorting by ascending title func
     let titleA = a.title.toUpperCase();
     let titleB = b.title.toUpperCase();
     if (titleA < titleB) {return -1;}
     if (titleA > titleB) {return 1;}
 }
-const searchList = searchList2.sort(sortByTitle); // sorting by title
+const searchList = searchList2.sort(sortByTitle); 
 console.log('searchList:', searchList);
 
