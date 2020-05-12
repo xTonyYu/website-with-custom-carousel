@@ -138,22 +138,27 @@ footer {
 
 .list-container {
   display: inline-block;
+  /* box-sizing: border-box; */
   position: absolute;
   z-index: 50;
   margin-left: 42px;
   margin-top: 2px;
-  width: 250px;
+  /* width: auto; */
 }
 
 .dropdownList{
-  width: 90%;
+  /* box-sizing: border-box; */
+  width: auto;
   border: solid 1px var(--pp-grey);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .dropdown-item {
   /* list-style: none; */
+  /* box-sizing: border-box; */
+  width: 100%;
   padding-left: 2%;
+  padding-right: 2%;
   font-size: 18px;
   height: 35px;
   padding-top: 8px;
@@ -166,6 +171,6 @@ footer {
 }
 
 #dropdown-item-hl {
-  background: yellow;
+  background: #ffc600;
   color: blue;
 }
