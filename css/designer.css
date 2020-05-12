@@ -17,39 +17,6 @@
   padding-right: 5px;
 }
 
-.search-container {
-
-}
-
-.list-container {
-  position: absolute; /* NEW */
-}
-
-.dropdownList{
-  width: 90%;/* Diff */
-  border: solid 1px rgb(225, 225, 225);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.dropdown-item {
-  list-style: none;
-  padding-left: 2%;
-  font-size: 18px;
-  height: 35px;
-  padding-top: 8px;
-  border-radius: 2px;
-  border: solid 1px rgb(225, 225, 225);
-}
-
-.list-container, .dropdownList{
-  border-radius: 4px;
-}
-
-#dropdown-item-hl {
-  background: #ffc600;
-  color: var(--pp-blue-hl);
-}
-
 /*** ////////// Carousel Section Team card \\\\\\\\\\ ***/
 .carousel-container {
   margin-left: 4%;

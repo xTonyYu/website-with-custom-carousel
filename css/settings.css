@@ -4,6 +4,7 @@
 :root {
   --pp-blue-hl: rgb(30, 136, 229);
   --pp-green: rgb(0, 150, 136);
+  --yllow-bkgd: rgb(253, 248, 155);
   --pp-grey: hsl(0, 0%, 80%)
 }
 
@@ -95,7 +96,7 @@ footer {
   height: 43px;
   border-radius: 30px;
   border: var(--pp-grey) solid 2px;
-  margin-bottom: 0;
+  margin-bottom: 0px;
 }
 
 .search-container, .mag-glass, .search-box, .search {
@@ -137,9 +138,34 @@ footer {
 
 .list-container {
   display: inline-block;
-  /* position: absolute; NEW */
+  position: absolute;
   z-index: 50;
   margin-left: 42px;
   margin-top: 2px;
   width: 250px;
+}
+
+.dropdownList{
+  width: 90%;
+  border: solid 1px var(--pp-grey);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.dropdown-item {
+  /* list-style: none; */
+  padding-left: 2%;
+  font-size: 18px;
+  height: 35px;
+  padding-top: 8px;
+  border-radius: 2px;
+  border: solid 1px var(--pp-grey);
+}
+
+.list-container, .dropdownList{
+  border-radius: 4px;
+}
+
+#dropdown-item-hl {
+  background: yellow;
+  color: blue;
 }
