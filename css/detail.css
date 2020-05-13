@@ -1,14 +1,6 @@
 
 /* Setting specific for detail.html */
 
-/* a, input {
-  text-decoration: none;
-  color: inherit;
-  white-space: nowrap;
-} */
-
-/*** ////////// Search Area \\\\\\\\\\\\ ***/
-#search-area {
-  padding: 5px 20px;/* Diff */
-  padding-right: 5px;
+::-webkit-scrollbar {
+  display: none;
 }

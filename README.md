@@ -15,7 +15,7 @@ NEXT STEPS:
 + separate carousel section from main.js and create a carousel.js. (done)
 + complete initial career path map (done)
 + get rid of repeated titles in the search list (done)
-+ add "x" in the search box
++ add "x" in the search box (done)
 + limiting the search list result to the bottom of the window and add scroll bar
 + refine career path map so left side dot show up (done; restructured to use 3 columns instead of 2)
 + word wrap the titles in the path map (low)
@@ -23,7 +23,7 @@ NEXT STEPS:
 + refract HTML so all "li" tags are JS driven instead of hard code (done)
 + data list in a separate file; source Search list from the smae source instead of creating a different list (done)
 + revisit search box code and css so it can be more of a component (in progress)
-+ convert all to React.js
++ convert all to React.js to componentize
   
 I welcome your feedback.
 Thanks.

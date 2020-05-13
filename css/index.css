@@ -9,7 +9,7 @@
   display: none;
 }
 
-/*** Search Area ***/
+/*** Search Area adding background image and vertical positioning ***/
 #search-area {
   background-image: url('../image/Background.jpg');
   background-size: 1300px auto;
@@ -17,30 +17,17 @@
   background-repeat: no-repeat;
   /* display: flex; */
   padding-top: 100px;
-  padding-bottom: 310px;
+  padding-bottom: 330px;
 }
 
 .search-container {
-  width: 500px;
-  margin: 20%;
   margin-top: 200px;
-  margin-bottom: 0px;
 }
 
 .search-container, .mag-glass, .search-box, .search {
   background-color: var(--yllow-bkgd);
 }
 
-.search-box {
-  width: 85%;
-}
-
 .whiteBkgrnd {
   background-color: white;
 }
-
-.spacing {
-  margin-left: 20%;
-}
-
-
