@@ -12,11 +12,14 @@ function pathMap(rolePicked) {
     if (selectedRole.length === 0) {
         return console.log("role name not found or spell incorrectly");
     }
-    selectedRole = selectedRole[0].path;
-    // console.log('selectedRole:', selectedRole);
+    // console.log('selectedRole BEFORE:', selectedRole);
+    const theRole = selectedRole[0].role;
+    // console.log('theRole:', theRole);
+    selectedPath = selectedRole[0].path;
+    // console.log('selectedPath:', selectedPath);
     let initialSplit = false;
 
-    const pathHtml = selectedRole.map(role => {
+    const pathHtml = selectedPath.map(role => {
         const numberOfRoutes = role.route.length;
         // console.log("numberOfRoute:", numberOfRoutes);
 
@@ -30,17 +33,23 @@ function pathMap(rolePicked) {
             <div class="level-container">
                 <div class="line-dot left">
                 </div>
+                <div class="line-dot middle">
+                </div>
                 <div class="line-dot right">
-                    <div class="line right" ${role.level === 1 ? 'style="border-color: white"' : ''} ></div>
-                    <div class="dot right"><a href="${mainRole.url}" class="level-title item-hl">${mainRole.shortTitle}</a></div>
+                    <div class="line right" ${role.level === 1 ? 'style="border-color: var(--white-bkgd)"' : ''} ></div>
+                    <div class="dot right"><a href="${mainRole.url}#${theRole}" class="level-title right item-hl">${mainRole.shortTitle}</a></div>
                 </div>
             </div>
             `
-        } else if (numberOfRoutes === 2 && initialSplit === false) { // for level with 2 route; assumes maximum 2 routes per level
+        } else if (numberOfRoutes === 2 && initialSplit === false) { // for level with 2 routes, initial split; assumes maximum 2 routes per level
             initialSplit = true;
             return `
             <div class="level-container">
-                <div class="curve-dot left">
+                <div class="line-dot left">
+                    <div class="line right" style="border-color: var(--white-bkgd"></div>
+                    <div class="textbox left"><a href="${altRole.url}#${theRole}" class="level-title left item-hl">${altRole.shortTitle}</a></div>
+                </div>
+                <div class="curve-dot middle">
                     <svg class="svg-curve-line" width="80px" height="80px" viewBox="0 17 80 40">
                         <path class="curve-line-path" stroke="black" strok-width="1" fill="none" 
                             d="m81 0 v10 
@@ -50,11 +59,11 @@ function pathMap(rolePicked) {
                                 v10 
                             " />
                     </svg>
-                    <div class="dot left"><a href="${altRole.url}" class="level-title item-hl">${altRole.shortTitle}</a></div>
+                    <div class="dot middle"></div>
                 </div>
                 <div class="line-dot right">
                     <div class="line right"></div>
-                    <div class="dot right"><a href="${mainRole.url}" class="level-title item-hl">${mainRole.shortTitle}</a></div>
+                    <div class="dot right"><a href="${mainRole.url}#${theRole}" class="level-title right item-hl">${mainRole.shortTitle}</a></div>
                 </div>
             </div>
             `
@@ -62,12 +71,16 @@ function pathMap(rolePicked) {
             return `
             <div class="level-container">
                 <div class="line-dot left">
-                    <div class="line left"></div> 
-                    <div class="dot left"><a href="${altRole.url}" class="level-title item-hl">${altRole.shortTitle}</a></div>
+                    <div class="line left" style="border-color: var(--white-bkgd"></div>
+                    <div class="textbox left"><a href="${altRole.url}#${theRole}" class="level-title left item-hl">${altRole.shortTitle}</a></div> 
+                </div>
+                <div class="line-dot middle">
+                    <div class="line middle"></div>
+                    <div class="dot middle"></div>
                 </div>
                 <div class="line-dot right">
                     <div class="line right"></div>
-                    <div class="dot right"><a href="${mainRole.url}" class="level-title item-hl">${mainRole.shortTitle}</a></div>
+                    <div class="dot right"><a href="${mainRole.url}#${theRole}" class="level-title right item-hl">${mainRole.shortTitle}</a></div>
                 </div>
             </div>
             `
@@ -85,10 +98,10 @@ teammembers.forEach(member => member.addEventListener('click', e => pathMap(e.ta
 
 const curUrl = window.location.href;
 // console.log(curUrl);
-const index = curUrl.indexOf('#') +1
+const index = curUrl.indexOf('#') +1 || curUrl.length;
 let re = new RegExp('%20', 'gi');
 const roleKeyWord = curUrl.slice(index).replace(re, ' ');
-console.log('roleKeyWord', roleKeyWord);
+// console.log('roleKeyWord', roleKeyWord);
 
 pathMap(roleKeyWord); // updating path map based on what was clicked before this page
-console.log("%crunning untriggered pathMap func", 'color: red');
+// console.log("%crunning untriggered pathMap func", 'color: red');

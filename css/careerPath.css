@@ -1,0 +1,92 @@
+
+/*** /////////// Career Path Map \\\\\\\\\\\ ***/
+.career-path {
+  /* display: flex; */
+  justify-content: flex-start;
+  /* color: #333333; */
+}
+
+.path-title {
+  margin-left: 4%;
+  font-size: 21px;
+  min-width: 10%;
+  z-index: 10;
+  height: 35%;
+}
+
+/* .right-padding {
+  width: 200px;
+} */
+.career-path-outer-container {
+  display: flex;
+  justify-content: space-around;
+  width: auto;
+}
+
+.career-path-container {
+  /* margin: 25px; */
+  font-size: 16px;
+  padding-right: 0%;
+}
+
+.curve-line-path {
+  stroke-width: 2px;
+}
+
+.level-container {
+  /* border: 1px solid red; */
+  width: 200px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.line-dot, .curve-dot, .svg-curve-line, .line {
+  width: 33.3%;
+  height: 70px;
+}
+
+.svg-curve-line {
+  width: 100%;
+}
+
+.dot {
+  height: 14px;
+  width: 14px;
+  background-color: black;
+  border-radius: 50%;
+  margin-left: -6px;
+  position: absolute;
+}
+
+.textbox.left {
+  height: 14px;
+  width: 14px;
+  margin-left: 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end; 
+}
+
+.level-title {
+  color: var(--pp-blue-hl);
+  /* white-space: normal; */
+}
+
+.level-title.right{
+  margin-left: 40px;
+}
+
+.level-title.left{
+  /* position: absolute; */
+  z-index: 20;
+  /* margin-right: 40px; */
+  /* white-space: normal; */
+}
+
+.curve-dot .dot {
+  margin-top: -5px;
+}
+
+.line.right, .line.middle {
+  border-left: 2px solid black;
+}

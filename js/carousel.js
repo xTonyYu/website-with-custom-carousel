@@ -68,16 +68,16 @@ function isLastMemberVisible(teammembersArr) {
         // console.log('rec.width+margin of', member._allowToShow, member.innerText, member._totalWidth);
     });
 
-    console.log('%cSUM members\' rec.width+margin', 'color: blue', sumWidthMembersAllowToShow);
-    console.warn('teammemberList visible width:', teammemberListVisibleWidth);
+    // console.log('%cSUM members\' rec.width+margin', 'color: blue', sumWidthMembersAllowToShow);
+    // console.warn('teammemberList visible width:', teammemberListVisibleWidth);
 
     // if sum of all _allowToShow members's width is smaller than teammemberList width (container's visible width)
     // then that means last member is visible on the page
     if (sumWidthMembersAllowToShow <= teammemberListVisibleWidth) {
-        console.log('%cisLastMemberVisible? TRUE', 'color: blue');
+        // console.log('%cisLastMemberVisible? TRUE', 'color: blue');
         return true;
     } else {
-        console.log('%cisLastMemberVisible? FALSE', 'color: blue');
+        // console.log('%cisLastMemberVisible? FALSE', 'color: blue');
         return false;
     }
 }
@@ -91,7 +91,7 @@ function slideLeftOrRight(slideDirection, lastMemberVisibility) {
     }
     let leadingMemberIndex = teammembersArr.findIndex(member => member._allowToShow === true);
     // leadingMemberIndex = leadingMemberIndex < 0 ? teammembersArr.length : leadingMemberIndex; // set to last obj if it is -1
-    console.log('leadingMemberIndex:', leadingMemberIndex);
+    // console.log('leadingMemberIndex:', leadingMemberIndex);
     let leadingMember = teammembersArr[leadingMemberIndex],
         speed = 550,
         effect = 'cubic-bezier(0.54, 0.07, 0, 0.76)',
@@ -99,19 +99,19 @@ function slideLeftOrRight(slideDirection, lastMemberVisibility) {
     const curMarginLeft = parseFloat(teammemberList.style.marginLeft) || 0;
     
     // console.log("teammembersArr", teammembersArr);
-    console.log("slideDirection", slideDirection);
-    console.log('lastMemberVisible:', lastMemberVisible);
+    // console.log("slideDirection", slideDirection);
+    // console.log('lastMemberVisible:', lastMemberVisible);
     
     if (slideDirection === 'left' && lastMemberVisible === false 
         && leadingMemberIndex < teammembersArr.length - 1) {
         // leadingMember = teammembersArr[leadingMemberIndex];
-        console.log('leadingMember:', leadingMember);
+        // console.log('leadingMember:', leadingMember);
         leadingMember._allowToShow = false;
         // leadingMember.style.display = 'none'; // original
         leadingMember.style.marginLeft = -leadingMember._totalWidth +'px'; // margin left
     } else if (slideDirection === 'right') {
         leadingMember = teammembersArr[leadingMemberIndex-1] || teammembersArr[0];
-        console.log('leadingMember:', leadingMember);
+        // console.log('leadingMember:', leadingMember);
         leadingMember._allowToShow = true;
         // leadingMember.style.display = 'block'; // original
         leadingMember.style.marginLeft = '0px'; // margin left
@@ -121,14 +121,14 @@ function slideLeftOrRight(slideDirection, lastMemberVisibility) {
 
 function resizeCarousel(e) {
     const lastMemberVisible = isLastMemberVisible(teammembersArr);
-    inspect();
+    // inspect();
     if (window.innerWidth > prevWindowWidth && lastMemberVisible === true) {
         // expand carousel and show extra member is space available
         console.log("%cDOING something", 'color: red');
         slideLeftOrRight('right', lastMemberVisible);
     }
     prevWindowWidth = window.innerWidth;
-    inspect();
+    // inspect();
 }
 
 function debounce(func, wait = 200, immediate = true) {

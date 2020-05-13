@@ -349,6 +349,29 @@ function sortByTitle(a, b) {  // sorting by ascending title func
     if (titleA < titleB) {return -1;}
     if (titleA > titleB) {return 1;}
 }
-const searchList = searchList2.sort(sortByTitle); 
-console.log('searchList:', searchList);
+function unique(item, index, arr) { // func to make unique list
+    return (index === 0) || (item.title !== arr[index-1].title);
+}
+
+function uniqueTest(arr) { // alternative func to make unique list
+    var u = {}, a = [];
+    for(var i = 0, l = arr.length; i < l; ++i){
+        // console.log(u.hasOwnProperty(arr[i].title));
+        if(!u.hasOwnProperty(arr[i].title)) {
+            a.push(arr[i]);
+            // console.log('pushing');
+            u[arr[i].title] = 1;
+            // console.log('u:', u);
+        }
+    }
+    return a;
+}
+
+const sortedList = searchList2.sort(sortByTitle);
+const searchList = sortedList.filter(unique); //sorted and unique
+
+const arr = [1,1,2,2,3,3,3,4,4,5,5,5,5]
+// const searchList = uniqueTest(sortedList); //sorted and unique
+
+// console.log('searchList:', searchList);
 

@@ -1,9 +1,5 @@
 
 /* Setting specific for index.html */
-:root {
-  /* --yllow-bkgd: rgb(253, 248, 155);
-  --pp-grey: hsl(0, 0%, 80%) */
-}
 
 * {
   background-color: var(--yllow-bkgd);
