@@ -5,7 +5,6 @@ const svgSearch = document.querySelector('#svg-search');
 const clearSearchBtn = document.querySelector('.clear-search-x');
 const svgX = document.querySelector('#svg-X');
 const listWrapper = document.querySelector('.list-wrapper');
-const listContainer = document.querySelector('.list-container');
 
 // searchList in data.js;
 
@@ -23,7 +22,14 @@ function filteringList(searchText, option) {
 function displayResult(e) {    
     const searchText = this.value;
     const result = filteringList(searchText,'gi');
-    // console.log(result.length);
+
+    // display clear search "x" botton
+    clearSearchBtn.style.visibility = 'visible';
+    svgX.style.fill = '#000000';
+    if (searchText.length === 0) {
+        svgX.style.fill = 'none';
+        clearSearchBtn.style.visibility = 'hidden';
+    }
     // displaying the dropdown list
     let htmlDropdown;
     if (!searchText == '' && result.length > 0) {
@@ -47,7 +53,7 @@ function displayResult(e) {
                 </a>
             `
         }).join('');
-        htmlDropdown = `<div class='list-container'>
+        htmlDropdown = `<div class="list-container">
                             <ul class="dropdownList">${tempHtml}</ul>
                         </div>`;
         // addWhiteBkgrnd();
@@ -56,10 +62,15 @@ function displayResult(e) {
     }
     listWrapper.innerHTML = htmlDropdown;
     const dropdownATag = document.querySelectorAll('.dropdown-a');
-    // console.log('dropdownA:', dropdownATag);
-
-    // adding event listener once dropdown list is created
+    
+    // adding event listeners and max height for list container once dropdown list is created
     if (document.querySelector('.dropdownList')) {
+        const listContainer = document.querySelector('.list-container');
+        console.log('window.innerHeight:', window.innerHeight);
+        console.log('listWrapper.offsetHeight:', listWrapper.offsetTop);
+        const listWrapperMaxHeight = window.innerHeight - listWrapper.offsetTop - 10 + 'px';
+        listContainer.style.maxHeight = listWrapperMaxHeight;
+
         document.querySelector('.dropdownList').addEventListener('mouseleave', () => listWrapper.innerHTML = '');
         dropdownATag.forEach(item => item.addEventListener('click', () => {
             // console.log("%cclicking", 'color: red');
@@ -80,18 +91,18 @@ function toggleBkgrndHL(e) {
             ele.classList.add('whiteBkgrnd');
         })
         svgSearch.style.fill = '#000000';
-        svgX.style.fill = '#000000';
     } else {
         focusSearch.forEach(ele => {
             ele.classList.remove('whiteBkgrnd');
         })
         svgSearch.style.fill = 'var(--pp-grey)';
-        svgX.style.fill = 'var(--pp-grey)';
     }
 }
 
 function clearSearchBoxnList() {
     search.value = '';
+    clearSearchBtn.style.visibility = 'hidden';
+    svgX.style.fill = 'none';
     if (document.querySelector('.dropdownList')) {
         listWrapper.innerHTML = '';
     }
@@ -109,6 +120,7 @@ clearSearchBtn.addEventListener('click', clearSearchBoxnList);
 search.addEventListener('keyup', displayResult);
 
 /*** Research AREA ***/
+
 
 function inspect(e) {
     // console.log(e);

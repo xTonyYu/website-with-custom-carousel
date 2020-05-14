@@ -16,7 +16,7 @@ NEXT STEPS:
 + complete initial career path map (done)
 + get rid of repeated titles in the search list (done)
 + add "x" in the search box (done)
-+ limiting the search list result to the bottom of the window and add scroll bar
++ limiting the search list result to the bottom of the window and add scroll bar (done)
 + refine career path map so left side dot show up (done; restructured to use 3 columns instead of 2)
 + word wrap the titles in the path map (low)
 + figure out how svg works and change its color other than black (done)
