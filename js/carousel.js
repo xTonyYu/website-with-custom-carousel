@@ -4,8 +4,12 @@ const leftButton = document.querySelector('.left-btn');
 const rightButton = document.querySelector('.right-btn');
 const teammemberList = document.querySelector('.teammember-list');
 
-// teamData in data.js;
+// style transition variables
+let speed = 550,
+            effect = 'cubic-bezier(0.54, 0.07, 0, 0.76)',
+            delay = 0;
 
+// teamData in data.js;
 // const teamData = [
 //     {genericTitle: 'Sr. Product Manager', role: 'Product Manager', url: '#Placeholder' },
 //     {genericTitle: 'Product Manager', role: 'Product Manager', url: '#Placeholder' },
@@ -32,8 +36,12 @@ teammemberList.innerHTML = carouselHtml;
 const teammembers = document.querySelectorAll('.teammember');
 // const teammembersArr = new Array(...teammembers);
 const teammembersArr = [...teammembers];
-teammembersArr.map(member => member._allowToShow = true);
-
+let leadingMemberIndex;
+teammembersArr.map(member => {
+    member._allowToShow = true;
+    member._totalWidth = totalWidth(member);
+});
+showCarouselBtn(teammembersArr, isLastMemberVisible(teammembersArr));
 
 ///////////****   Carousel functionality  ****\\\\\\\\\\\
 
@@ -48,38 +56,87 @@ function totalWidth(DOMElement) {
     padding = parseFloat(curStyle.paddingLeft) + parseFloat(curStyle.paddingRight),
     border = parseFloat(curStyle.borderLeftWidth) + parseFloat(curStyle.borderRightWidth),
 
-    margin = parseFloat(curStyle.marginLeft) + parseFloat(curStyle.marginRight);
+    marginLeft = parseFloat(curStyle.marginLeft),
+    marginRIght = parseFloat(curStyle.marginRight),
+    margin = marginLeft + marginRIght,
+    totalWidth = width + padding + border + margin;
 
-    // console.log('marginRight', DOMElement.innerText, margin);
-    return (width + padding + border + margin);
+    DOMElement._contentWidth = width;
+    DOMElement._marginLeft = marginLeft;
+    console.log('totalWidth', DOMElement.innerText, totalWidth);
+    return totalWidth;
 }
 
-function isLastMemberVisible(teammembersArr) {
+function isLastMemberVisible(teammembersArr, addOnePriorHiddenMember) {
     // getting the accurate visible width of teammemberList; in floating point number instead of less accurate integern from offsetWidth
     const teammemberListVisibleWidth = teammemberList.getBoundingClientRect().width;
-    
+
     let sumWidthMembersAllowToShow = 0;
     // summing the width of all members that are _allowToShow which has display="showing" (i.e. NOT "display: none")
     teammembersArr.forEach(member => {
+        console.log('visible member:', member.innerText, member._allowToShow);
         if (member._allowToShow) {
-            member._totalWidth = totalWidth(member);
+            // member._totalWidth = totalWidth(member);
             sumWidthMembersAllowToShow += member._totalWidth;
+            console.log('member:', member.innerText, member._totalWidth, sumWidthMembersAllowToShow);
         }
         // console.log('rec.width+margin of', member._allowToShow, member.innerText, member._totalWidth);
     });
+    
+    //** testing area reduce sumWidthMembersAllowToShow by the right margin of last memeber */
+    adjSumWidthMembersAllowToShow = sumWidthMembersAllowToShow - (teammembersArr[teammembersArr.length-1]._totalWidth - teammembersArr[teammembersArr.length-1]._contentWidth);
+    
+    console.log('addOnePriorHiddenMember:', addOnePriorHiddenMember);
+    if (addOnePriorHiddenMember) {
+        leadingMemberIndex = teammembersArr.findIndex(member => member._allowToShow === true);
+        let onePriorHiddenMember = teammembersArr[leadingMemberIndex-1] || teammembersArr[0];
+        console.log('Yo prior hidden member:', onePriorHiddenMember.innerText, onePriorHiddenMember._totalWidth);
+        adjSumWidthMembersAllowToShow += onePriorHiddenMember._totalWidth;
+    }
+    console.log('adjSumWidthMembersAllowToShow:', adjSumWidthMembersAllowToShow);
 
     // console.log('%cSUM members\' rec.width+margin', 'color: blue', sumWidthMembersAllowToShow);
-    // console.warn('teammemberList visible width:', teammemberListVisibleWidth);
-
+    console.log('%cteammemberList visible width:', 'color: blue', teammemberListVisibleWidth);
+    
     // if sum of all _allowToShow members's width is smaller than teammemberList width (container's visible width)
     // then that means last member is visible on the page
-    if (sumWidthMembersAllowToShow <= teammemberListVisibleWidth) {
-        // console.log('%cisLastMemberVisible? TRUE', 'color: blue');
+    if (adjSumWidthMembersAllowToShow <= teammemberListVisibleWidth) {
+        console.log('%cisLastMemberVisible? TRUE', 'color: blue');
         return true;
     } else {
-        // console.log('%cisLastMemberVisible? FALSE', 'color: blue');
+        console.log('%cisLastMemberVisible? FALSE', 'color: blue');
         return false;
     }
+}
+
+function showCarouselBtn(teammembersArr, lastMemberVisible, slideDirection) {
+    if (teammembersArr[0]._allowToShow === true) {
+        // leftButton.style.width = '0px';
+        leftButton.style.visibility = 'hidden';
+        // console.log('do NOT show LEFT Btn');
+    } else {
+        leftButton.style.width = 'var(--arrow)';
+        leftButton.style.visibility = 'visible';
+        // leftButton.style.width = '50px';
+        // console.log('show LEFT Btn');
+    }
+
+        // if (lastMemberVisible === false || slideDirection === 'right') {
+        if (lastMemberVisible === false) {
+            // rightButton.style.display = 'block';
+            // rightButton.style.width = 'var(--arrow)';
+            rightButton.style.visibility = 'visible';
+            // console.log('show RIGHT Btn');
+        } else {
+            // rightButton.style.display = 'none'
+            // rightButton.style.width = '0px';
+            rightButton.style.visibility = 'hidden';
+        // console.log('do NOT show RIGHT Btn');
+        }
+    
+    leftButton.style.transition = 'all ' + speed + 'ms' + ' ' + effect + ' ' + delay + 'ms';
+    rightButton.style.transition = 'all ' + speed + 'ms' + ' ' + effect + ' ' + delay + 'ms';
+
 }
 
 function slideLeftOrRight(slideDirection, lastMemberVisibility) {
@@ -89,49 +146,67 @@ function slideLeftOrRight(slideDirection, lastMemberVisibility) {
     } else {
         lastMemberVisible = lastMemberVisibility;
     }
-    let leadingMemberIndex = teammembersArr.findIndex(member => member._allowToShow === true);
+    leadingMemberIndex = teammembersArr.findIndex(member => member._allowToShow === true);
     // leadingMemberIndex = leadingMemberIndex < 0 ? teammembersArr.length : leadingMemberIndex; // set to last obj if it is -1
     // console.log('leadingMemberIndex:', leadingMemberIndex);
-    let leadingMember = teammembersArr[leadingMemberIndex],
-        speed = 550,
-        effect = 'cubic-bezier(0.54, 0.07, 0, 0.76)',
-        delay = 0;
-    const curMarginLeft = parseFloat(teammemberList.style.marginLeft) || 0;
+    let leadingMember = teammembersArr[leadingMemberIndex];
+    // const curMarginLeft = parseFloat(teammemberList.style.marginLeft) || 0;
     
     // console.log("teammembersArr", teammembersArr);
-    // console.log("slideDirection", slideDirection);
+    console.log("slideDirection", slideDirection);
     // console.log('lastMemberVisible:', lastMemberVisible);
-    
+
     if (slideDirection === 'left' && lastMemberVisible === false 
         && leadingMemberIndex < teammembersArr.length - 1) {
         // leadingMember = teammembersArr[leadingMemberIndex];
         // console.log('leadingMember:', leadingMember);
         leadingMember._allowToShow = false;
-        // leadingMember.style.display = 'none'; // original
         leadingMember.style.marginLeft = -leadingMember._totalWidth +'px'; // margin left
     } else if (slideDirection === 'right') {
         leadingMember = teammembersArr[leadingMemberIndex-1] || teammembersArr[0];
         // console.log('leadingMember:', leadingMember);
         leadingMember._allowToShow = true;
-        // leadingMember.style.display = 'block'; // original
         leadingMember.style.marginLeft = '0px'; // margin left
     }
     leadingMember.style.transition = 'all ' + speed + 'ms' + ' ' + effect + ' ' + delay + 'ms';
+
+    // after sliding action
+    setTimeout(function() {
+        console.log('%cAFTER sliding', 'color: red', slideDirection, '...');
+        lastMemberVisible = isLastMemberVisible(teammembersArr);
+        console.log('%cAFTER sliding - lastMemberVisible', 'color: red', lastMemberVisible);
+        showCarouselBtn(teammembersArr, lastMemberVisible, slideDirection);
+    }, 550);
 }
 
 function resizeCarousel(e) {
     const lastMemberVisible = isLastMemberVisible(teammembersArr);
-    // inspect();
+    console.log('lastMemberVisible:', lastMemberVisible);
+    let slideDirection;
+    inspect();
+    // need the AFTER resized teammemberListVisibleWidth (from isLastMemberVisible func)
+    // keep sliding RIGHT as long as POST-slide adjSumWidthMembersAllowToShow <= teammemberListVisibleWidth (from isLastMemberVisible func)
+    // POST-slide = adjSumWidthMembersAllowToShow + totalWidth from 1 prior "_allowToShow=false"
+
     if (window.innerWidth > prevWindowWidth && lastMemberVisible === true) {
         // expand carousel and show extra member is space available
         console.log("%cDOING something", 'color: red');
-        slideLeftOrRight('right', lastMemberVisible);
+        do {
+            slideDirection = 'right';
+            slideLeftOrRight(slideDirection, lastMemberVisible);
+            console.log("%cresize: sliding right", 'color: blue');
+        } while (isLastMemberVisible(teammembersArr, true));
+        // } while (false);
+    } else {
+        // after window resizing
+        console.log("show btn after resize?");
+        showCarouselBtn(teammembersArr, lastMemberVisible, slideDirection);
+        prevWindowWidth = window.innerWidth;
+        inspect('AFTER');
     }
-    prevWindowWidth = window.innerWidth;
-    // inspect();
 }
 
-function debounce(func, wait = 200, immediate = true) {
+function debounce(func, wait = 250, immediate = false) {
     var timeout;
     return function() {
         var context = this,
@@ -159,20 +234,16 @@ function debounce(func, wait = 200, immediate = true) {
 leftButton.addEventListener('click', e => slideLeftOrRight('right'));
 rightButton.addEventListener('click', e => slideLeftOrRight('left'));
 window.addEventListener('resize', debounce(resizeCarousel));
+
+
 /*** Research AREA ***/
 // teammembers.forEach(member => member.addEventListener('mouseover', inspect));
-
 // console.dir(body);
 
-function inspect(e) {
-    // console.log(e);
+function inspect(text) {
+    // console.log(text, 'lastMemberVisible:', lastMemberVisible);
     // console.dir(e);
-    console.log('prevWindowWidth', prevWindowWidth);
-    console.log('window.innerWidth', window.innerWidth)
+    console.log(text, 'window.innerWidth', window.innerWidth)
+    console.log(text, 'prevWindowWidth', prevWindowWidth);
     // console.dir(this);
-    // console.log(teammembers[5].innerText);
-    // console.dir(teammembers[5]);
-    // console.log(teammembers[2].innerText);
-    // console.dir(teammembers[2]);
 }
-

@@ -1,5 +1,10 @@
 
 /*** ////////// Carousel Section Team card \\\\\\\\\\ ***/
+:root {
+  --arrow: 37px;
+  --hide-arrow: -37px;
+}
+
 .carousel-container {
   margin-left: 4%;
   display: flex;
@@ -9,7 +14,7 @@
   display: flex;
   align-items: center;
   height: 100px;
-  width: 100%; /* prob need this for the carousel to grow as window grows
+  width: 100%; /* prob need this for the carousel to grow as window grows */
   overflow: hidden;
   /* overflow-x: scroll; */
 }
@@ -20,21 +25,18 @@
   align-items: center;
   font-size: large;
   z-index: 10;
-  margin-right: 10px;
   border: hidden;
   text-decoration: none;
   cursor: pointer;
   text-align: center;
   /* transition: background 250ms ease-in-out, 
-                transform 150ms ease; */
-    -webkit-appearance: none;
-    -moz-appearance: none;
+  transform 150ms ease; */
+  -webkit-appearance: none;
+  -moz-appearance: none;
   /* color: blue; */
-  /* width: 37px;
-  height: 37px; */
-  border-radius: 100%;
-  /* border: solid blue 1px; */
-  
+  width: var(--arrow);
+  height: var(--arrow);
+  border-radius: 50%;
 }
 
 .carousel-btn:hover, .carousel-btn:focus, .arrow:hover, .arrow:focus{
@@ -48,15 +50,21 @@
 }
 
 .right-btn {
-  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.left-btn {
+  /* margin-right: 5px; */
+  visibility: hidden;
+  /* margin-left: -(var(--hide-arrow)); */
 }
 
 .arrow {
-  /* color: blue; */
+  /* box-sizing: border-box; */
   /* border: solid 1px red; */
-  width: 31px;
-  height: 31px;
-  padding: 3px;
+  width: var(--arrow);
+  height: var(--arrow);
+  /* padding: 3px; */
   border-radius: 100%;
 }
 
@@ -68,6 +76,7 @@
   display: flex;
   align-items: center;
   height: 45px;
+  width: 100%;
   flex-flow: nowrap;
   /* flex-flow: wrap; */
   overflow: hidden;
@@ -76,7 +85,7 @@
 
 .teammember {
   /* padding: 10px; */
-  margin: 15px 20px 15px 0;
+  margin: 15px 20px 15px 0px;
   /* overflow: hidden; */
 }
 
