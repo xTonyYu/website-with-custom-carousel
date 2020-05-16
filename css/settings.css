@@ -105,10 +105,6 @@ footer {
   padding: 5px;
 }
 
-.focus-search {
-  /* transition: ease-in-out var(--ease-speed); */
-}
-
 .search-container {
   display: flex;
   flex-grow: 1;
@@ -171,9 +167,6 @@ footer {
 
 #svg-search, #Combined-Shape{
   fill: var(--pp-grey);
-}
-
-.list-wrapper {
 }
 
 .list-container {
