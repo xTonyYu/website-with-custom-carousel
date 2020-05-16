@@ -17,6 +17,7 @@ const teamData = [
     {genericTitle: 'Design Developer', role: 'Front-end Developer', url: '../PlumPear/detail.html' },
     {genericTitle: 'Front-end Developer', role: 'Front-end Developer', url: '../PlumPear/detail.html' },
     {genericTitle: 'Back-end Developer', role: 'Back-end Developer', url: '../PlumPear/detail.html' },
+    {genericTitle: 'Full Stack Developer', role: 'Full-stack Engineer', url: '../PlumPear/detail.html' },
 ];
 
 const careers = [

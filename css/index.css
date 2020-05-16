@@ -26,8 +26,10 @@
 
 .search-container, .mag-glass, .search-box, .search {
   background-color: var(--yllow-bkgd);
+  transition: ease-in-out var(--ease-speed);
 }
 
 .whiteBkgrnd {
   background-color: white;
+  transition: ease-in-out var(--ease-speed);
 }

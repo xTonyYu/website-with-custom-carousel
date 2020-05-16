@@ -9,7 +9,7 @@ const listWrapper = document.querySelector('.list-wrapper');
 // searchList in data.js;
 
 function filteringList(searchText, option) {
-    console.log(searchText);
+    // console.log(searchText);
     // show the filtered drop down list
     const re = new RegExp(searchText, option);
     const result = searchList.filter(item => {
@@ -66,8 +66,8 @@ function displayResult(e) {
     // adding event listeners and max height for list container once dropdown list is created
     if (document.querySelector('.dropdownList')) {
         const listContainer = document.querySelector('.list-container');
-        console.log('window.innerHeight:', window.innerHeight);
-        console.log('listWrapper.offsetHeight:', listWrapper.offsetTop);
+        // console.log('window.innerHeight:', window.innerHeight);
+        // console.log('listWrapper.offsetHeight:', listWrapper.offsetTop);
         const listWrapperMaxHeight = window.innerHeight - listWrapper.offsetTop - 10 + 'px';
         listContainer.style.maxHeight = listWrapperMaxHeight;
 
@@ -110,7 +110,7 @@ function clearSearchBoxnList() {
 }
 
 function toDetailPage(role, url) {
-    console.log(role, url);
+    // console.log(role, url);
     window.location.href = url + '#' + role;
 }
 

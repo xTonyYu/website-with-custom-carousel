@@ -105,6 +105,10 @@ footer {
   padding: 5px;
 }
 
+.focus-search {
+  /* transition: ease-in-out var(--ease-speed); */
+}
+
 .search-container {
   display: flex;
   flex-grow: 1;
@@ -221,5 +225,4 @@ footer {
 ::-webkit-input-placeholder, /* WebKit, Blink, Edge */
 ::placeholder { /*Most modern browsers support this now. */
   color: var(--pp-grey);
-  /* color: red; */
 }

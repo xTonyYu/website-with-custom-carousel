@@ -44,7 +44,8 @@
 }
 .carousel-btn:hover, .arrow:hover {
   background-color: hsl(189, 87%, 93%);
-  transition: ease-in-out 1s;
+  transition: ease-in-out var(--ease-speed);
+  /* transition: ease-in-out 1s; */
 }
 
 .carousel-btn:active, .arrow:active{
@@ -59,17 +60,13 @@
 .left-btn {
   opacity: 1;
   visibility: hidden;
-  /* margin-left: -(var(--hide-arrow)); */
 }
 
 .arrow {
-  /* box-sizing: border-box; */
-  /* border: solid 1px red; */
   /* width: var(--arrow);
   height: var(--arrow); */
   width: 30px;
   height: 30px;
-  /* padding: 3px; */
   border-radius: 50%;
   transition: ease-in-out var(--ease-speed);
 }
