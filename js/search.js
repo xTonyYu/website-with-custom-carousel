@@ -97,6 +97,7 @@ function toggleBkgrndHL(e) {
         })
         svgSearch.style.fill = 'var(--pp-grey)';
     }
+    svgSearch.style.transition = 'ease-in-out var(--ease-speed)';
 }
 
 function clearSearchBoxnList() {

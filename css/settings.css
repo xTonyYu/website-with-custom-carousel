@@ -6,7 +6,8 @@
   --pp-green: rgb(0, 150, 136);
   --yllow-bkgd: rgb(253, 248, 155);
   --white-bkgd: white;
-  --pp-grey: hsl(0, 0%, 80%)
+  --pp-grey: hsl(0, 0%, 80%);
+  --ease-speed: 0.5s;
 }
 
 * {
@@ -113,6 +114,7 @@ footer {
   border-radius: 30px;
   border: var(--pp-grey) solid 2px;
   margin-bottom: 0px;
+  transition: ease-in-out var(--ease-speed);
 }
 
 .search-container, .list-wrapper {

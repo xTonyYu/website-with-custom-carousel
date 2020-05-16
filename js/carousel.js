@@ -1,13 +1,10 @@
 /**** Carousel section in the Detail page ****/
 let prevWindowWidth = window.innerWidth
 const leftButton = document.querySelector('.left-btn');
+const leftArrow = document.querySelector('.arrow.left');
 const rightButton = document.querySelector('.right-btn');
+const rightArrow = document.querySelector('.arrow.right');
 const teammemberList = document.querySelector('.teammember-list');
-
-// style transition variables
-let speed = 550,
-            effect = 'cubic-bezier(0.54, 0.07, 0, 0.76)',
-            delay = 0;
 
 // teamData in data.js;
 // const teamData = [
@@ -20,7 +17,7 @@ let speed = 550,
 //     {genericTitle: 'Back-end Developer', role: 'Back-end Developer', url: '#Placeholder' },
 // ];
 
-///////////****   Creating carousel content cards  ****\\\\\\\\\\\
+//////////****   Creating carousel content cards  ****\\\\\\\\\\\\
 
 const carouselHtml = teamData.map(member => {
     return `
@@ -43,7 +40,7 @@ teammembersArr.map(member => {
 });
 showCarouselBtn(teammembersArr, isLastMemberVisible(teammembersArr));
 
-///////////****   Carousel functionality  ****\\\\\\\\\\\
+//////////****   Carousel functionality  ****\\\\\\\\\\\
 
 function totalWidth(DOMElement) {
     const curStyle = DOMElement.currentStyle || window.getComputedStyle(DOMElement), // need this to get margin width
@@ -63,7 +60,7 @@ function totalWidth(DOMElement) {
 
     DOMElement._contentWidth = width;
     DOMElement._marginLeft = marginLeft;
-    console.log('totalWidth', DOMElement.innerText, totalWidth);
+    // console.log('totalWidth', DOMElement.innerText, totalWidth);
     return totalWidth;
 }
 
@@ -109,34 +106,43 @@ function isLastMemberVisible(teammembersArr, addOnePriorHiddenMember) {
     }
 }
 
-function showCarouselBtn(teammembersArr, lastMemberVisible, slideDirection) {
+function showCarouselBtn(teammembersArr, lastMemberVisible) {
     if (teammembersArr[0]._allowToShow === true) {
         // leftButton.style.width = '0px';
         leftButton.style.visibility = 'hidden';
+        leftButton.style.opacity = 0;
+        leftArrow.style.marginLeft = 'var(--hide-arrow)';
         // console.log('do NOT show LEFT Btn');
     } else {
-        leftButton.style.width = 'var(--arrow)';
+        // leftButton.style.width = 'var(--arrow)';
         leftButton.style.visibility = 'visible';
-        // leftButton.style.width = '50px';
+        leftButton.style.opacity = 1;
+        leftArrow.style.marginLeft = '0px';
         // console.log('show LEFT Btn');
     }
 
-        // if (lastMemberVisible === false || slideDirection === 'right') {
-        if (lastMemberVisible === false) {
-            // rightButton.style.display = 'block';
-            // rightButton.style.width = 'var(--arrow)';
-            rightButton.style.visibility = 'visible';
-            // console.log('show RIGHT Btn');
-        } else {
-            // rightButton.style.display = 'none'
-            // rightButton.style.width = '0px';
-            rightButton.style.visibility = 'hidden';
+    if (lastMemberVisible) {
+        // rightButton.style.width = '0px';
+        rightButton.style.visibility = 'hidden';
+        rightButton.style.opacity = 0;
+        rightArrow.style.marginRight = 'var(--hide-arrow)';
         // console.log('do NOT show RIGHT Btn');
-        }
-    
-    leftButton.style.transition = 'all ' + speed + 'ms' + ' ' + effect + ' ' + delay + 'ms';
-    rightButton.style.transition = 'all ' + speed + 'ms' + ' ' + effect + ' ' + delay + 'ms';
+    } else {
+        // rightButton.style.width = 'var(--arrow)';
+        rightButton.style.visibility = 'visible';
+        rightButton.style.opacity = 1;
+        rightArrow.style.marginRight = '0px';
+        // console.log('show RIGHT Btn');
+    }
 
+    let speed = 500,
+        delay = 2000;
+    leftButton.style.transition = 'visibility ' + speed +'ms' +' ease 1s';
+    rightButton.style.transition ='visibility ' + speed +'ms' +' ease 1s';
+    leftButton.style.transition = 'opacity ' + delay +'ms';
+    rightButton.style.transition ='opacity ' + delay +'ms';
+    leftButton.style.transition = 'ease-in-out var(--ease-speed)';
+    rightButton.style.transition = 'ease-in-out var(--ease-speed)';
 }
 
 function slideLeftOrRight(slideDirection, lastMemberVisibility) {
@@ -168,7 +174,10 @@ function slideLeftOrRight(slideDirection, lastMemberVisibility) {
         leadingMember._allowToShow = true;
         leadingMember.style.marginLeft = '0px'; // margin left
     }
-    leadingMember.style.transition = 'all ' + speed + 'ms' + ' ' + effect + ' ' + delay + 'ms';
+    let speed = 550,
+        carouselEffect = 'cubic-bezier(0.54, 0.07, 0, 0.76)',
+        delay = 0;
+    leadingMember.style.transition = 'all ' + speed + 'ms' + ' ' + carouselEffect + ' ' + delay + 'ms';
 
     // after sliding action
     setTimeout(function() {
@@ -237,8 +246,6 @@ window.addEventListener('resize', debounce(resizeCarousel));
 
 
 /*** Research AREA ***/
-// teammembers.forEach(member => member.addEventListener('mouseover', inspect));
-// console.dir(body);
 
 function inspect(text) {
     // console.log(text, 'lastMemberVisible:', lastMemberVisible);
