@@ -4,6 +4,8 @@ First website I ever built (my third and final career change). I started from HT
 
 The home page is simple (took me a while for my first build; ensuring the right styling, position, and feature is time consuming; great learning experience).  The search box is not fully functioning.  It acts more like a dropdown for now.
 
+The detail page has the dynamic carousel that I built.  The number of cards in the carousel can be changed by the updating the teamData.  The width of it will change with the size of the window and the left/right arrows will appear when the carousel can slide in the corresponding direction.
+
 HOW TO get to the webpage with custom carousel:
 1) go directly to the detial.html
 or from index.html...
@@ -22,7 +24,7 @@ NEXT STEPS:
 + figure out how svg works and change its color other than black (done)
 + refract HTML so all "li" tags are JS driven instead of hard code (done)
 + data list in a separate file; source Search list from the smae source instead of creating a different list (done)
-+ revisit search box code and css so it can be more of a component (in progress)
++ revisit search box code and css so it can be more of a component (in progress 70%)
 + convert all to React.js to componentize
   
 I welcome your feedback.
