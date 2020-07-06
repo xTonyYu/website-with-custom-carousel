@@ -1,5 +1,7 @@
+// deploying on github, need to use index.html for it to work; so to feature this page, need to replace "detail.html" with "index.html"
+
 const uxList = [
-    {title: 'UX Designer', url: '../PlumPear/detail.html'},
+    {title: 'UX Designer', url: '../PlumPear/index.html'},
     {title: 'UX Researcher', url: '#researcher'},
     {title: 'UX Writer', url: '#writer'},
     {title: 'UX Mama', url: '#mom'},
@@ -10,14 +12,14 @@ const uxList = [
 ];
 
 const teamData = [
-    {genericTitle: 'Sr. Product Manager', role: 'Product Manager', url: '../PlumPear/detail.html' },
-    {genericTitle: 'Product Manager', role: 'Product Manager', url: '../PlumPear/detail.html' },
-    {genericTitle: 'UX Designer', role: 'UX Product Designer', url: '../PlumPear/detail.html' },
-    {genericTitle: 'UX Researcher', role: 'UX Researcher', url: '../PlumPear/detail.html' },
-    {genericTitle: 'Design Developer', role: 'Front-end Developer', url: '../PlumPear/detail.html' },
-    {genericTitle: 'Front-end Developer', role: 'Front-end Developer', url: '../PlumPear/detail.html' },
-    {genericTitle: 'Back-end Developer', role: 'Back-end Developer', url: '../PlumPear/detail.html' },
-    {genericTitle: 'Full Stack Developer', role: 'Full-stack Engineer', url: '../PlumPear/detail.html' },
+    {genericTitle: 'Sr. Product Manager', role: 'Product Manager', url: '../PlumPear/index.html' },
+    {genericTitle: 'Product Manager', role: 'Product Manager', url: '../PlumPear/index.html' },
+    {genericTitle: 'UX Designer', role: 'UX Product Designer', url: '../PlumPear/index.html' },
+    {genericTitle: 'UX Researcher', role: 'UX Researcher', url: '../PlumPear/index.html' },
+    {genericTitle: 'Design Developer', role: 'Front-end Developer', url: '../PlumPear/index.html' },
+    {genericTitle: 'Front-end Developer', role: 'Front-end Developer', url: '../PlumPear/index.html' },
+    {genericTitle: 'Back-end Developer', role: 'Back-end Developer', url: '../PlumPear/index.html' },
+    {genericTitle: 'Full Stack Developer', role: 'Full-stack Engineer', url: '../PlumPear/index.html' },
 ];
 
 const careers = [
@@ -28,7 +30,7 @@ const careers = [
                     {number:1,
                     title: 'UX Product Designer',
                     shortTitle: 'Designer',
-                    url:'../PlumPear/detail.html'}
+                    url:'../PlumPear/index.html'}
                     ]
             },
             {   level: 2,
@@ -36,7 +38,7 @@ const careers = [
                     {number:1,
                     title: 'Senior UX Product Designer',
                     shortTitle: 'Senior Designer',
-                    url:'../PlumPear/detail.html'}
+                    url:'../PlumPear/index.html'}
                     ]
             },
             {   level: 3,
@@ -44,11 +46,11 @@ const careers = [
                     {number: 2,
                     title: 'Lead/Principal UX Product Designer',
                     shortTitle: 'Lead/Principal Designer',
-                    url:'../PlumPear/detail.html'},
+                    url:'../PlumPear/index.html'},
                     {number: 1,
                     title: 'UX Product Design Manager',
                     shortTitle: 'Design Manager',
-                    url:'../PlumPear/detail.html'}
+                    url:'../PlumPear/index.html'}
                     ]
             },
             {   level: 4,
@@ -56,11 +58,11 @@ const careers = [
                     {number: 1,
                     title: 'Director of UX Product Design',
                     shortTitle: 'Director of Design',
-                    url:'../PlumPear/detail.html'},
+                    url:'../PlumPear/index.html'},
                     {number: 2,
                     title: 'Senior Lead/Principal UX Product Designer',
                     shortTitle: 'Senior Principal Designer',
-                    url:'../PlumPear/detail.html'}
+                    url:'../PlumPear/index.html'}
                     ]
             },
             {   level: 5,
@@ -68,7 +70,7 @@ const careers = [
                     {number:1,
                     title: 'VP of UX Product Design',
                     shortTitle: 'VP of Design',
-                    url:'../PlumPear/detail.html'}
+                    url:'../PlumPear/index.html'}
                     ]
             },
         ]
@@ -80,7 +82,7 @@ const careers = [
                 {number:1,
                 title: 'UX Researcher',
                 shortTitle: 'Researcher',
-                url:'../PlumPear/detail.html'}
+                url:'../PlumPear/index.html'}
                 ]
         },
         {   level: 2,
@@ -88,7 +90,7 @@ const careers = [
                 {number:1,
                 title: 'Senior UX Researcher',
                 shortTitle: 'Senior Researcher',
-                url:'../PlumPear/detail.html'}
+                url:'../PlumPear/index.html'}
                 ]
         },
         {   level: 3,
@@ -96,11 +98,11 @@ const careers = [
                 {number: 2,
                 title: 'Lead/Principal UX Researcher',
                 shortTitle: 'Lead/Principal Researcher',
-                url:'../PlumPear/detail.html'},
+                url:'../PlumPear/index.html'},
                 {number: 1,
                 title: 'UX Researcher Manager',
                 shortTitle: 'Researcher Manager',
-                url:'../PlumPear/detail.html'}
+                url:'../PlumPear/index.html'}
                 ]
         },
         {   level: 4,
@@ -108,11 +110,11 @@ const careers = [
                 {number: 1,
                 title: 'Director of UX Researcher',
                 shortTitle: 'Director of UX',
-                url:'../PlumPear/detail.html'},
+                url:'../PlumPear/index.html'},
                 {number: 2,
                 title: 'Senior Lead/Principal UX Researcher',
                 shortTitle: 'Senior Principal Researcher',
-                url:'../PlumPear/detail.html'}
+                url:'../PlumPear/index.html'}
                 ]
         },
         {   level: 5,
@@ -120,7 +122,7 @@ const careers = [
                 {number:1,
                 title: 'VP of UX Product Design',
                 shortTitle: 'VP of Design',
-                url:'../PlumPear/detail.html'}
+                url:'../PlumPear/index.html'}
                 ]
         },
     ]
@@ -132,7 +134,7 @@ const careers = [
                     {number:1,
                     title: 'Front-end Developer',
                     shortTitle: 'Developer',
-                    url:'../PlumPear/detail.html'}
+                    url:'../PlumPear/index.html'}
                     ]
             },
             {   level: 2,
@@ -140,7 +142,7 @@ const careers = [
                     {number:1,
                     title: 'Senior Front-end Developer',
                     shortTitle: 'Senior Developer',
-                    url:'../PlumPear/detail.html'}
+                    url:'../PlumPear/index.html'}
                     ]
             },
             {   level: 3,
@@ -148,11 +150,11 @@ const careers = [
                     {number: 2,
                     title: 'Lead/Principal Front-end Developer',
                     shortTitle: 'Lead/Principal Developer',
-                    url:'../PlumPear/detail.html'},
+                    url:'../PlumPear/index.html'},
                     {number: 1,
                     title: 'Front-end Engieering Manager',
                     shortTitle: 'Engineering Manager',
-                    url:'../PlumPear/detail.html'}
+                    url:'../PlumPear/index.html'}
                     ]
             },
             {   level: 4,
@@ -160,7 +162,7 @@ const careers = [
                     {number:1,
                     title: 'Director of Front-end Engineering',
                     shortTitle: 'Director of Engineering',
-                    url:'../PlumPear/detail.html'}
+                    url:'../PlumPear/index.html'}
                     ]
             },
             {   level: 5,
@@ -168,7 +170,7 @@ const careers = [
                     {number:1,
                     title: 'VP of Front-end Engineering',
                     shortTitle: 'VP of Engineering',
-                    url:'../PlumPear/detail.html'}
+                    url:'../PlumPear/index.html'}
                     ]
             }]
     },
@@ -179,7 +181,7 @@ const careers = [
                 {number:1,
                 title: 'Back-end Developer',
                 shortTitle: 'Developer',
-                url:'../PlumPear/detail.html'}
+                url:'../PlumPear/index.html'}
                 ]
         },
         {   level: 2,
@@ -187,7 +189,7 @@ const careers = [
                 {number:1,
                 title: 'Senior Back-end Developer',
                 shortTitle: 'Senior Developer',
-                url:'../PlumPear/detail.html'}
+                url:'../PlumPear/index.html'}
                 ]
         },
         {   level: 3,
@@ -195,11 +197,11 @@ const careers = [
                 {number: 2,
                 title: 'Lead/Principal Back-end Developer',
                 shortTitle: 'Lead/Principal Developer',
-                url:'../PlumPear/detail.html'},
+                url:'../PlumPear/index.html'},
                 {number: 1,
                 title: 'Back-end Engieering Manager',
                 shortTitle: 'Engineering Manager',
-                url:'../PlumPear/detail.html'}
+                url:'../PlumPear/index.html'}
                 ]
         },
         {   level: 4,
@@ -207,11 +209,11 @@ const careers = [
                 {number:1,
                 title: 'Director of Engineering',
                 shortTitle: 'Director of Engineering',
-                url:'../PlumPear/detail.html'},
+                url:'../PlumPear/index.html'},
                 {number: 2,
                 title: 'Software Architect',
                 shortTitle: 'Architect',
-                url:'../PlumPear/detail.html'}
+                url:'../PlumPear/index.html'}
                 ]
         },
         {   level: 5,
@@ -219,7 +221,7 @@ const careers = [
                 {number:1,
                 title: 'VP of Engineering',
                 shortTitle: 'VP of Engineering',
-                url:'../PlumPear/detail.html'}
+                url:'../PlumPear/index.html'}
                 ]
         }]
     },
@@ -230,7 +232,7 @@ const careers = [
                 {number:1,
                 title: 'Software Engineer',
                 shortTitle: 'Engineer',
-                url:'../PlumPear/detail.html'}
+                url:'../PlumPear/index.html'}
                 ]
         },
         {   level: 2,
@@ -238,7 +240,7 @@ const careers = [
                 {number:1,
                 title: 'Senior Software Engineer',
                 shortTitle: 'Senior Engineer',
-                url:'../PlumPear/detail.html'}
+                url:'../PlumPear/index.html'}
                 ]
         },
         {   level: 3,
@@ -246,11 +248,11 @@ const careers = [
                 {number: 2,
                 title: 'Lead/Principal Software Engineer',
                 shortTitle: 'Lead/Principal Engineer',
-                url:'../PlumPear/detail.html'},
+                url:'../PlumPear/index.html'},
                 {number: 1,
                 title: 'Software Engineering Manager',
                 shortTitle: 'Engineering Manager',
-                url:'../PlumPear/detail.html'}
+                url:'../PlumPear/index.html'}
                 ]
         },
         {   level: 4,
@@ -258,11 +260,11 @@ const careers = [
                 {number:1,
                 title: 'Director of Engineering',
                 shortTitle: 'Director of Engineering',
-                url:'../PlumPear/detail.html'},
+                url:'../PlumPear/index.html'},
                 {number: 2,
                 title: 'Software Architect',
                 shortTitle: 'Architect',
-                url:'../PlumPear/detail.html'}
+                url:'../PlumPear/index.html'}
                 ]
         },
         {   level: 5,
@@ -270,7 +272,7 @@ const careers = [
                 {number:1,
                 title: 'VP of Engineering',
                 shortTitle: 'VP of Engineering',
-                url:'../PlumPear/detail.html'}
+                url:'../PlumPear/index.html'}
                 ]
         }]
     },
@@ -281,7 +283,7 @@ const careers = [
                     {number:1,
                     title: 'Associate Product Manager',
                     shortTitle: 'Associate Product Manager',
-                    url:'../PlumPear/detail.html'}
+                    url:'../PlumPear/index.html'}
                     ]
             },
             {   level: 2,
@@ -289,7 +291,7 @@ const careers = [
                     {number:1,
                     title: 'Product Manager',
                     shortTitle: 'Product Manager',
-                    url:'../PlumPear/detail.html'}
+                    url:'../PlumPear/index.html'}
                     ]
             },
             {   level: 3,
@@ -297,7 +299,7 @@ const careers = [
                     {number:1,
                     title: 'Senior Product Manager',
                     shortTitle: 'Senior Product Manager',
-                    url:'../PlumPear/detail.html'}
+                    url:'../PlumPear/index.html'}
                     ]
             },
             {   level: 4,
@@ -305,7 +307,7 @@ const careers = [
                     {number:1,
                     title: 'Director of Product',
                     shortTitle: 'Director of Product',
-                    url:'../PlumPear/detail.html'}
+                    url:'../PlumPear/index.html'}
                     ]
             },
             {   level: 5,
@@ -313,7 +315,7 @@ const careers = [
                     {number:1,
                     title: 'VP of Product',
                     shortTitle: 'VP of Product',
-                    url:'../PlumPear/detail.html'}
+                    url:'../PlumPear/index.html'}
                     ]
             }]
     },
