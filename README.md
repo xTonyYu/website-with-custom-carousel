@@ -27,5 +27,8 @@ NEXT STEPS:
 + revisit search box code and css so it can be more of a component (in progress 70%)
 + convert all to React.js to componentize
   
-I welcome your feedback.
-Thanks.
+Thanks for visiting.
+
+Technology:
+
+Plain Javascript, HTML, CSS
